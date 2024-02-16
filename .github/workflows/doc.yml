@@ -23,7 +23,7 @@ jobs:
           pip install -e .
       - name: Run pytest
         run: |
-          pytest test/ --cov=hsc --cov-report html:codecov
+          pytest test/ --cov=hsc --cov-report html:codecov json:cov.json
       - name: Install zip
         run: |
           apt-get update
@@ -36,6 +36,11 @@ jobs:
         with:
           name: cov-html-zip
           path: coverage_report.zip
+      - name: Upload coverage json
+        uses: actions/upload-artifact@v4
+        with:
+          name: cov-json
+          path: cov.json
 
   documentation:
     name: documentation
@@ -70,9 +75,13 @@ jobs:
           github_token: ${{ secrets.DEPLOY_TOKEN }}
           publish_dir: doc/build/html/
           force_orphan: true
+      - name: Download coverage json
+        uses: actions/download-artifact@v4
+        with:
+          name: cov-json
       - name: Create json for badge
         run: |
-          export TOTAL=$(python3 -c "import json;print(json.load(open('covbadge.json'))['totals']['percent_covered_display'])")
+          export TOTAL=$(python3 -c "import json;print(json.load(open('cov.json'))['totals']['percent_covered_display'])")
           echo "total=$TOTAL" >> $GITHUB_ENV
           echo "### Total coverage: ${TOTAL}%" >> $GITHUB_STEP_SUMMARY
       - name: Make badge
