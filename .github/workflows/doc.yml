@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - setup/migrate-code
 
 jobs:
   coverage_report:
