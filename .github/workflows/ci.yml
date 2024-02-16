@@ -1,0 +1,25 @@
+name: Test-Data
+
+on:
+  push:
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+    container:
+      image: dolfinx/dolfinx:v0.7.3
+
+    steps:
+      - name: Source complex build
+        run: |
+          bash -c 'source /usr/local/bin/dolfinx-complex-mode'
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install .
+      - name: Run pytest
+        run: |
+          pytest test/

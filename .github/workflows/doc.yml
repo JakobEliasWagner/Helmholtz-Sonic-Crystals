@@ -1,0 +1,96 @@
+name: Documentation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  coverage_report:
+    runs-on: ubuntu-latest
+    container:
+      image: dolfinx/dolfinx:v0.7.3
+    steps:
+      - name: Source complex build
+        run: |
+          bash -c 'source /usr/local/bin/dolfinx-complex-mode'
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install module
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install -e .
+      - name: Run pytest
+        run: |
+          pytest test/ --cov=hsc --cov-report html:codecov --cov-report json:cov.json
+      - name: Install zip
+        run: |
+          apt-get update
+          apt-get install zip -y
+      - name: package coverage report
+        run: |
+          zip -r coverage_report.zip codecov
+      - name: Upload coverage data
+        uses: actions/upload-artifact@v4
+        with:
+          name: cov-html-zip
+          path: coverage_report.zip
+      - name: Upload coverage json
+        uses: actions/upload-artifact@v4
+        with:
+          name: cov-json
+          path: cov.json
+
+  documentation:
+    name: documentation
+    needs: coverage_report
+    runs-on: ubuntu-latest
+    container:
+      image: dolfinx/dolfinx:v0.7.3
+    steps:
+      - uses: actions/checkout@master
+        name: Checkout
+      - name: Download coverage html zip
+        uses: actions/download-artifact@v4
+        with:
+          name: cov-html-zip
+      - name: Install zip
+        run: |
+          apt-get update
+          apt-get install zip -y
+      - name: Unzip coverage html
+        run: unzip coverage_report.zip
+      - name: Move into static sphinx dir
+        run: mv codecov doc/source/_static/codecov
+      - name: build website for detailed coverage
+        run: |
+          pip install .
+          sphinx-apidoc -f -o doc/source/ hsc/
+          sphinx-build -M html doc/source doc/build
+      - name: deploy website
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_branch: deployed-pages
+          github_token: ${{ secrets.DEPLOY_TOKEN }}
+          publish_dir: doc/build/html/
+          force_orphan: true
+      - name: Download coverage json
+        uses: actions/download-artifact@v4
+        with:
+          name: cov-json
+      - name: Create json for badge
+        run: |
+          export TOTAL=$(python3 -c "import json;print(json.load(open('cov.json'))['totals']['percent_covered_display'])")
+          echo "total=$TOTAL" >> $GITHUB_ENV
+          echo "### Total coverage: ${TOTAL}%" >> $GITHUB_STEP_SUMMARY
+      - name: Make badge
+        uses: schneegans/dynamic-badges-action@v1.4.0
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gistID: 4159362e5d85e8d43a396693d3e606bf
+          filename: covbadge.json
+          label: Coverage
+          message: ${{ env.total }}%
+          minColorRange: 50
+          maxColorRange: 95
+          valColorRange: ${{ env.total }}
