@@ -23,7 +23,7 @@ jobs:
           pip install -e .
       - name: Run pytest
         run: |
-          pytest test/ --cov=hsc --cov-report html:codecov json:cov.json
+          pytest test/ --cov=hsc --cov-report html:codecov --cov-report json:cov.json
       - name: Install zip
         run: |
           apt-get update
