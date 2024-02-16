@@ -7,8 +7,8 @@
 Data generation for acoustic sonic crystals using the helmholtz equation.
 
 [![Python 3.10](https://img.shields.io/badge/Python-3.10-blue)](https://www.python.org/downloads/release/python-3100/)
-[![Code Coverage]()]()
-[![Documentation]()]()
+[![Code Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/JakobEliasWagner/4159362e5d85e8d43a396693d3e606bf/raw/covbadge.json)](https://jakobeliaswagner.github.io/Helmholtz/_static/codecov/index.html)
+[![Documentation](https://img.shields.io/badge/Documentation-FF7043)](https://jakobeliaswagner.github.io/Helmholtz-Sonic-Crystals/index.html)
 [![Linkedin](https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/jakob-wagner-65b9871a9/)
 </div>
 
