@@ -1,0 +1,45 @@
+[project]
+name = "hsc"
+version = "1.0.0"
+description = "A project to generate big datasets of parameterized sonic crystals."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Jakob Elias Wagner", email = "mail@jakob-wagner.org" }]
+maintainers = [{ name = "Jakob Elias Wagner", email = "mail@jakob-wagner.org" }]
+keywords = [
+    "Mathematics",
+    "Physics",
+    "Helmholtz",
+    "Sonic Crystal",
+]
+
+
+classifiers = [
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Development Status :: 3 - Alpha",
+]
+
+dependencies = [
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "seaborn",
+    "gmsh",
+    "h5py",
+    "black",
+    "ruff",
+    "isort",
+    "pre-commit",
+    "pytest",
+    "pytest-cov",
+    "sphinx",
+]
+
+[build-system]
+requires = ["setuptools>=43.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["hsc"]
