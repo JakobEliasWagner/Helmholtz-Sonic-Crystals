@@ -44,14 +44,14 @@ pytest test/
 
 ## Documentation
 
-The documentation of this project can be read [here]().
+The documentation of this project can be read [here](https://jakobeliaswagner.github.io/Helmholtz-Sonic-Crystals/index.html).
 
 Ensure the `doc` optional dependencies are installed.
 To build the documentation locally run
 
 ```shell
 pytest --cov=src/nos --cov-report html:doc/source/_static/codecov test/
-sphinx-apidoc -f -o doc/source/ src/nos
+sphinx-apidoc -f -o doc/source/ hsc
 sphinx-build -M html doc/source doc/build
 ```
 
