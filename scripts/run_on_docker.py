@@ -4,7 +4,7 @@ import shutil
 
 import docker
 
-from nos.utility import UniqueId
+from hsc.utility import UniqueId
 
 cwd_path = pathlib.Path.cwd()
 # Setup argument parser
@@ -13,14 +13,36 @@ parser = argparse.ArgumentParser(
 )
 parser.add_argument("--input_parameter_file", required=True)
 parser.add_argument("--input_code_file", required=True)
-parser.add_argument("--src_dir", required=False, help="Path to the src directory", default=cwd_path.joinpath("src"))
 parser.add_argument(
-    "--out_dir", required=False, help="Path to the host output directory", default=cwd_path.joinpath("out")
+    "--src_dir",
+    required=False,
+    help="Path to the src directory",
+    default=cwd_path.joinpath("."),
 )
-parser.add_argument("--container_name", required=False, help="Name of the FeniCS docker container", default="dolfinx")
-parser.add_argument("--working_dir_container", required=False, help="Base directory in container", default="/home/")
 parser.add_argument(
-    "--is_complex", action="store_true", required=False, help="Toggle for complex valued execution", default=True
+    "--out_dir",
+    required=False,
+    help="Path to the host output directory",
+    default=cwd_path.joinpath("out"),
+)
+parser.add_argument(
+    "--container_name",
+    required=False,
+    help="Name of the FeniCS docker container",
+    default="dolfinx",
+)
+parser.add_argument(
+    "--working_dir_container",
+    required=False,
+    help="Base directory in container",
+    default="/home/",
+)
+parser.add_argument(
+    "--is_complex",
+    action="store_true",
+    required=False,
+    help="Toggle for complex valued execution",
+    default=True,
 )
 parser.add_argument(
     "--cleanup_docker",
@@ -28,7 +50,12 @@ parser.add_argument(
     help="Toggle for cleaning up all working directories on the docker container",
     default=False,
 )
-parser.add_argument("--n_threads", required=False, help="Number of threads to generate results", default=1)
+parser.add_argument(
+    "--n_threads",
+    required=False,
+    help="Number of threads to generate results",
+    default=1,
+)
 
 # Parse arguments
 args = parser.parse_args()
@@ -50,12 +77,17 @@ cleanup = args.cleanup_docker
 n_threads = int(args.n_threads)
 
 # Complex build toggle
-builds = {True: "/usr/local/bin/dolfinx-complex-mode", False: "/usr/local/bin/dolfinx-real-mode"}
+builds = {
+    True: "/usr/local/bin/dolfinx-complex-mode",
+    False: "/usr/local/bin/dolfinx-real-mode",
+}
 
 client = docker.from_env()
 
 
-def copy_to_container(container, host_entry: pathlib.Path, container_dir: pathlib.Path) -> None:
+def copy_to_container(
+    container, host_entry: pathlib.Path, container_dir: pathlib.Path
+) -> None:
     """Copies host dir to container dir
 
     Args:
@@ -66,7 +98,9 @@ def copy_to_container(container, host_entry: pathlib.Path, container_dir: pathli
     if host_entry.is_dir():
         tar_stream = shutil.make_archive("tmp", "tar", host_entry)
     elif host_entry.is_file():
-        tar_stream = shutil.make_archive("tmp", "tar", host_entry.parent, host_entry.name)
+        tar_stream = shutil.make_archive(
+            "tmp", "tar", host_entry.parent, host_entry.name
+        )
     else:
         raise ValueError(f"Unknown host file system entry: {host_entry}!")
     with open(tar_stream, "rb") as file_obj:
@@ -117,7 +151,9 @@ def setup_container(container, working_dir: pathlib.Path) -> None:
     container.exec_run(f"mkdir -p {working_dir.joinpath(container_src_dir)}")
 
 
-def copy_from_container(container, container_dir: pathlib.Path, host_dir: pathlib.Path) -> None:
+def copy_from_container(
+    container, container_dir: pathlib.Path, host_dir: pathlib.Path
+) -> None:
     """Copies output files from container to output directory on host.
 
     Args:
@@ -145,7 +181,9 @@ if __name__ == "__main__":
         setup_container(container_, container_working_dir)
 
         # Copy relevant files to container
-        copy_to_container(container_, host_src_dir, container_working_dir.joinpath(container_src_dir))
+        copy_to_container(
+            container_, host_src_dir, container_working_dir.joinpath(container_src_dir)
+        )
         copy_to_container(container_, project_file, container_working_dir)
         copy_to_container(container_, description_file, container_working_dir)
         copy_to_container(container_, py_file, container_working_dir)
@@ -157,7 +195,11 @@ if __name__ == "__main__":
         host_output_dir.mkdir(parents=True, exist_ok=True)
 
         # Copy output files to host
-        copy_from_container(container_, container_working_dir.joinpath(container_out_dir), host_output_dir)
+        copy_from_container(
+            container_,
+            container_working_dir.joinpath(container_out_dir),
+            host_output_dir,
+        )
 
     finally:
         client.close()

@@ -2,7 +2,7 @@ import argparse
 import pathlib
 import shutil
 
-from nos.data.helmholtz import Helmholtz
+from hsc import Helmholtz
 
 # Setup argument parser
 parser = argparse.ArgumentParser(description="Creates a dataset for given input file.")
