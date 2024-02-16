@@ -23,7 +23,7 @@ parser.add_argument(
     "--out_dir",
     required=False,
     help="Path to the host output directory",
-    default=cwd_path.joinpath("out"),
+    default=cwd_path.joinpath("data"),
 )
 parser.add_argument(
     "--container_name",
