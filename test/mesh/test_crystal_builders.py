@@ -1,35 +1,7 @@
-import pathlib
-
 import gmsh
-import pytest
 
-from hsc.domain_properties import CShapeDescription, CylinderDescription, NoneDescription, read_config
-from hsc.mesh import CrystalBuilder, CShapedCrystalBuilder, CylindricalCrystalBuilder
-
-
-@pytest.fixture
-def descriptions():
-    templates = pathlib.Path.cwd().joinpath("templates")
-    files = templates.glob("*.ini")
-    descriptions = []
-    for file in files:
-        descriptions.extend(read_config(file))
-    return descriptions
-
-
-@pytest.fixture
-def cylindrical_descriptions(descriptions):
-    return [des for des in descriptions if isinstance(des.crystal, CylinderDescription)]
-
-
-@pytest.fixture
-def c_shaped_descriptions(descriptions):
-    return [des for des in descriptions if isinstance(des.crystal, CShapeDescription)]
-
-
-@pytest.fixture
-def none_descriptions(descriptions):
-    return [des for des in descriptions if isinstance(des.crystal, NoneDescription)]
+from hsc.mesh import (CrystalBuilder, CShapedCrystalBuilder,
+                      CylindricalCrystalBuilder)
 
 
 def test_base_crystal_builder_empty(descriptions):

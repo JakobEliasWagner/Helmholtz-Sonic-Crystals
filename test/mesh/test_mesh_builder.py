@@ -2,19 +2,17 @@ import dataclasses
 import pathlib
 import tempfile
 import warnings
+from typing import List
 
 import numpy as np
 import pytest
 
-from hsc.domain_properties import (
-    AdiabaticAbsorberDescription,
-    CrystalDescription,
-    CShapeDescription,
-    CylinderDescription,
-    Description,
-    NoneDescription,
-)
+from hsc.domain_properties import (AdiabaticAbsorberDescription,
+                                   CrystalDescription, CShapeDescription,
+                                   CylinderDescription, Description,
+                                   NoneDescription)
 from hsc.mesh import MeshBuilder
+from hsc.mesh.gmsh_builder import GmshBuilder
 
 
 @pytest.fixture
@@ -58,8 +56,14 @@ def wrong_description(cylindrical_description):
     return des
 
 
-def test_mesh_builder_none(none_description, cylindrical_description, c_shaped_description):
-    domain_descriptions = [none_description, cylindrical_description, c_shaped_description]
+def test_mesh_builder_none(
+    none_description, cylindrical_description, c_shaped_description
+):
+    domain_descriptions = [
+        none_description,
+        cylindrical_description,
+        c_shaped_description,
+    ]
     for description in domain_descriptions:
         with tempfile.TemporaryDirectory() as tmp_dir:
             mesh_path = pathlib.Path(tmp_dir).joinpath("mesh.msh")
@@ -79,3 +83,12 @@ def test_unknown_crystal_builder(wrong_description):
 
             cb.build()
     assert True
+
+
+def test_gmsh_builder(descriptions):
+    class TestMeshBuilder(GmshBuilder):
+        def build(self) -> List[int]:
+            pass
+
+    builder = TestMeshBuilder(descriptions[0])
+    builder.build()
