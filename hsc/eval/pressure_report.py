@@ -1,5 +1,6 @@
 import pathlib
 import re
+import shutil
 from itertools import combinations
 from typing import Dict
 
@@ -13,9 +14,10 @@ from hsc import HelmholtzDataset
 
 from .report import Report
 
-mpl.rcParams["text.usetex"] = True
-mpl.rcParams["text.latex.preamble"] = r"\usepackage{amsmath}"
-mpl.rcParams["pgf.texsystem"] = "pdflatex"
+if shutil.which("latex"):
+    mpl.rcParams["text.usetex"] = True
+    mpl.rcParams["text.latex.preamble"] = r"\usepackage{amsmath}"
+    mpl.rcParams["pgf.texsystem"] = "pdflatex"
 
 
 class PressureReport(Report):
@@ -27,12 +29,16 @@ class PressureReport(Report):
         PressureReport.plot_difference(pr_out, data_sets)
 
     @staticmethod
-    def plot_difference(out_dir: pathlib.Path, data_sets: Dict[str, HelmholtzDataset]) -> None:
+    def plot_difference(
+        out_dir: pathlib.Path, data_sets: Dict[str, HelmholtzDataset]
+    ) -> None:
         studies = combinations(data_sets.items(), 2)
         for d1, d2 in studies:
             name1, dset1 = d1
             name2, dset2 = d2
-            study_id = "_".join([re.sub(r"[^\w\-_\. ]", "_", name) for name in [name1, name2]])
+            study_id = "_".join(
+                [re.sub(r"[^\w\-_\. ]", "_", name) for name in [name1, name2]]
+            )
 
             bbox1 = dset1.description.crystal_box
             relevant_values1 = np.where(bbox1.distance(dset1.x.T) < 1e-8)[0]
@@ -58,11 +64,15 @@ class PressureReport(Report):
                 freq = dset1.frequencies[idx1]
                 # set 1
                 p1 = dset1.p[idx1, relevant_values1]
-                interp1 = CloughTocher2DInterpolator(dset1.x[relevant_values1, :2], p1, fill_value=0.0)
+                interp1 = CloughTocher2DInterpolator(
+                    dset1.x[relevant_values1, :2], p1, fill_value=0.0
+                )
                 vals1 = np.real(interp1(xx_plot, yy_plot))
                 # set 2
                 p2 = dset2.p[idx2, relevant_values2]
-                interp2 = CloughTocher2DInterpolator(dset2.x[relevant_values2, :2], p2, fill_value=0.0)
+                interp2 = CloughTocher2DInterpolator(
+                    dset2.x[relevant_values2, :2], p2, fill_value=0.0
+                )
                 vals2 = np.real(interp2(xx_plot, yy_plot))
 
                 differences[i, :, :] = vals1 - vals2

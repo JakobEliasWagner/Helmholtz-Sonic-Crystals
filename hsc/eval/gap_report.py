@@ -1,5 +1,6 @@
 import pathlib
 import re
+import shutil
 from itertools import combinations
 from typing import Dict, Tuple
 
@@ -14,9 +15,10 @@ from hsc import HelmholtzDataset
 from .report import Report
 from .transmission_loss import transmission_loss
 
-mpl.rcParams["text.usetex"] = True
-mpl.rcParams["text.latex.preamble"] = r"\usepackage{amsmath}"
-mpl.rcParams["pgf.texsystem"] = "pdflatex"
+if shutil.which("latex"):
+    mpl.rcParams["text.usetex"] = True
+    mpl.rcParams["text.latex.preamble"] = r"\usepackage{amsmath}"
+    mpl.rcParams["pgf.texsystem"] = "pdflatex"
 
 
 class GapReport(Report):
@@ -25,13 +27,18 @@ class GapReport(Report):
         gr_out = out_dir.joinpath("tl_gaps")
         gr_out.mkdir()
 
-        tl_sets = {name: (dset, transmission_loss(dset, 1.0)) for name, dset in data_sets.items()}
+        tl_sets = {
+            name: (dset, transmission_loss(dset, 1.0))
+            for name, dset in data_sets.items()
+        }
 
         GapReport.individual_plots(gr_out, tl_sets)
         GapReport.relational_plots(gr_out, tl_sets)
 
     @staticmethod
-    def relational_plots(out_dir: pathlib.Path, data_sets: Dict[str, Tuple[HelmholtzDataset, np.array]]) -> None:
+    def relational_plots(
+        out_dir: pathlib.Path, data_sets: Dict[str, Tuple[HelmholtzDataset, np.array]]
+    ) -> None:
         if len(data_sets) < 2:
             return
         GapReport.comparative_plot_all(out_dir, data_sets)
@@ -42,12 +49,20 @@ class GapReport(Report):
             name1, _ = d1
             name2, _ = d2
             # filename
-            study_id = "_".join([re.sub(r"[^\w\-_\. ]", "_", name) for name in [name1, name2]])
-            GapReport.difference_plot(out_dir.joinpath(f"tl_{study_id}_difference.pdf"), d1, d2)
-            GapReport.comparative_plot(out_dir.joinpath(f"tl_{study_id}_comparison.pdf"), d1, d2)
+            study_id = "_".join(
+                [re.sub(r"[^\w\-_\. ]", "_", name) for name in [name1, name2]]
+            )
+            GapReport.difference_plot(
+                out_dir.joinpath(f"tl_{study_id}_difference.pdf"), d1, d2
+            )
+            GapReport.comparative_plot(
+                out_dir.joinpath(f"tl_{study_id}_comparison.pdf"), d1, d2
+            )
 
     @staticmethod
-    def comparative_plot_all(out_dir: pathlib.Path, data_sets: Dict[str, Tuple[HelmholtzDataset, np.array]]) -> None:
+    def comparative_plot_all(
+        out_dir: pathlib.Path, data_sets: Dict[str, Tuple[HelmholtzDataset, np.array]]
+    ) -> None:
         file = out_dir.joinpath("tl_all.pdf")
         fig, ax = plt.subplots()
         for name, (dset, tl) in data_sets.items():
@@ -74,7 +89,15 @@ class GapReport(Report):
 
         fig, ax = plt.subplots()
         sns.lineplot(x=tl1, y=dset1.frequencies, ax=ax, orient="y", label=name1)
-        sns.lineplot(x=tl2, y=dset2.frequencies, ax=ax, orient="y", linestyle="--", label=name2, alpha=0.7)
+        sns.lineplot(
+            x=tl2,
+            y=dset2.frequencies,
+            ax=ax,
+            orient="y",
+            linestyle="--",
+            label=name2,
+            alpha=0.7,
+        )
         plt.title("Transmission loss comparison")
         plt.xlabel("TL [dB]")
         plt.ylabel("Frequency [Hz]")
@@ -118,7 +141,9 @@ class GapReport(Report):
         plt.clf()
 
     @staticmethod
-    def individual_plots(out_dir: pathlib.Path, data_sets: Dict[str, Tuple[HelmholtzDataset, np.array]]) -> None:
+    def individual_plots(
+        out_dir: pathlib.Path, data_sets: Dict[str, Tuple[HelmholtzDataset, np.array]]
+    ) -> None:
         for name, (dset, tl) in data_sets.items():
             path_name = re.sub(r"[^\w\-_\. ]", "_", name)
             file = out_dir.joinpath(f"tl_{path_name}.pdf")
