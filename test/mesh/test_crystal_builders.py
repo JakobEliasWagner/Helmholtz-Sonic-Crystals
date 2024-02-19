@@ -1,17 +1,16 @@
 import gmsh
 
-from hsc.mesh import (CrystalBuilder, CShapedCrystalBuilder,
-                      CylindricalCrystalBuilder)
+from hsc.mesh import CrystalBuilder, CShapedCrystalBuilder, CylindricalCrystalBuilder
 
 
-def test_base_crystal_builder_empty(descriptions):
-    for description in descriptions:
+def test_base_crystal_builder_empty(template_descriptions):
+    for description in template_descriptions:
         cb = CrystalBuilder(description)
         assert len(cb.build()) == 0
 
 
-def test_cylindrical_builder(cylindrical_descriptions):
-    description = cylindrical_descriptions[0]
+def test_cylindrical_builder(template_cylindrical_descriptions):
+    description = template_cylindrical_descriptions[0]
     cb = CylindricalCrystalBuilder(description)
     gmsh.initialize()
     gmsh.option.setNumber("General.Verbosity", 0)
@@ -21,8 +20,8 @@ def test_cylindrical_builder(cylindrical_descriptions):
     gmsh.finalize()
 
 
-def test_c_shaped_builder(c_shaped_descriptions):
-    description = c_shaped_descriptions[0]
+def test_c_shaped_builder(template_c_shaped_descriptions):
+    description = template_c_shaped_descriptions[0]
     cb = CShapedCrystalBuilder(description)
     gmsh.initialize()
     gmsh.option.setNumber("General.Verbosity", 0)

@@ -1,11 +1,14 @@
 import gmsh
 
-from hsc.mesh import (CrystalDomainBuilder, CShapedCrystalDomainBuilder,
-                      CylindricalCrystalDomainBuilder)
+from hsc.mesh import (
+    CrystalDomainBuilder,
+    CShapedCrystalDomainBuilder,
+    CylindricalCrystalDomainBuilder,
+)
 
 
-def test_cylindrical_crystal_domain_builder(cylindrical_descriptions):
-    description = cylindrical_descriptions[0]
+def test_cylindrical_crystal_domain_builder(template_cylindrical_descriptions):
+    description = template_cylindrical_descriptions[0]
     gmsh.initialize()
     gmsh.option.setNumber("General.Verbosity", 0)
     gmsh.model.add("test cylindrical domain")
@@ -14,8 +17,8 @@ def test_cylindrical_crystal_domain_builder(cylindrical_descriptions):
     gmsh.finalize()
 
 
-def test_c_shaped_crystal_domain_builder(c_shaped_descriptions):
-    description = c_shaped_descriptions[0]
+def test_c_shaped_crystal_domain_builder(template_c_shaped_descriptions):
+    description = template_c_shaped_descriptions[0]
     gmsh.initialize()
     gmsh.model.add("test c-shaped domain")
     gmsh.option.setNumber("General.Verbosity", 0)
@@ -24,8 +27,8 @@ def test_c_shaped_crystal_domain_builder(c_shaped_descriptions):
     gmsh.finalize()
 
 
-def test_none_crystal_domain_builder(none_descriptions):
-    description = none_descriptions[0]
+def test_none_crystal_domain_builder(template_none_descriptions):
+    description = template_none_descriptions[0]
     gmsh.initialize()
     gmsh.option.setNumber("General.Verbosity", 0)
     gmsh.model.add("test none domain")
