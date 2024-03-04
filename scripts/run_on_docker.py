@@ -3,6 +3,7 @@ import pathlib
 import shutil
 
 import docker
+from loguru import logger
 
 from hsc.utility import UniqueId
 
@@ -11,8 +12,12 @@ cwd_path = pathlib.Path.cwd()
 parser = argparse.ArgumentParser(
     description="Copy files to/from a Docker container and execute python script inside it."
 )
-parser.add_argument("--input_parameter_file", required=True)
-parser.add_argument("--input_code_file", required=True)
+parser.add_argument(
+    "--input_parameter_file", required=False, default="scripts/domain.ini"
+)
+parser.add_argument(
+    "--input_code_file", required=False, default="scripts/create_dataset.py"
+)
 parser.add_argument(
     "--src_dir",
     required=False,
@@ -65,12 +70,14 @@ args = parser.parse_args()
 description_file = cwd_path.joinpath(args.input_parameter_file)
 project_file = cwd_path.joinpath("pyproject.toml")
 py_file = cwd_path.joinpath(args.input_code_file)
+readme_file = cwd_path.joinpath("README.md")
+license_file = cwd_path.joinpath("LICENSE")
 host_src_dir = cwd_path.joinpath(args.src_dir)
 host_output_dir = cwd_path.joinpath(args.out_dir)
 #   target
 container_name = args.container_name
 container_working_dir = pathlib.Path(args.working_dir_container)
-container_src_dir = "src"
+container_src_dir = "hsc"
 container_out_dir = str(UniqueId())
 is_complex = args.is_complex
 cleanup = args.cleanup_docker
@@ -97,10 +104,14 @@ def copy_to_container(
     """
     if host_entry.is_dir():
         tar_stream = shutil.make_archive("tmp", "tar", host_entry)
+        logger.info(
+            f"Copying {host_entry} to {container_dir} ({len(list(host_entry.glob('*')))} files)."
+        )
     elif host_entry.is_file():
         tar_stream = shutil.make_archive(
             "tmp", "tar", host_entry.parent, host_entry.name
         )
+        logger.info(f"Copying {host_entry} to {container_dir}.")
     else:
         raise ValueError(f"Unknown host file system entry: {host_entry}!")
     with open(tar_stream, "rb") as file_obj:
@@ -117,7 +128,7 @@ def execute_script_in_container(container, script_path: pathlib.Path) -> None:
     """
     _, stream = container.exec_run(
         f"bash -c 'source {builds[is_complex]}; "
-        f"pip install -e .;"
+        f"pip install .;"
         f"python3 {script_path.name} --input_file {description_file.name} "
         f"--output_dir {container_out_dir} --n_threads {n_threads}'",
         workdir=str(container_working_dir),
@@ -149,6 +160,7 @@ def setup_container(container, working_dir: pathlib.Path) -> None:
     """
     container.exec_run(f"mkdir -p {working_dir.joinpath(container_out_dir)}")
     container.exec_run(f"mkdir -p {working_dir.joinpath(container_src_dir)}")
+    container.exec_run("apt-get install python3-pip")
 
 
 def copy_from_container(
@@ -171,25 +183,33 @@ def copy_from_container(
 
 if __name__ == "__main__":
     try:
+        logger.info(f"Starting with {args}.")
         # Create or get container
         container_ = client.containers.get(container_name)
         container_.start()
+        logger.info(f"Started docker container {container_name}.")
 
         # setup container
         if cleanup:
             cleanup_container(container_, container_working_dir)
         setup_container(container_, container_working_dir)
+        logger.info("Successfully setup docker container.")
 
         # Copy relevant files to container
         copy_to_container(
             container_, host_src_dir, container_working_dir.joinpath(container_src_dir)
         )
         copy_to_container(container_, project_file, container_working_dir)
+        copy_to_container(container_, readme_file, container_working_dir)
+        copy_to_container(container_, license_file, container_working_dir)
         copy_to_container(container_, description_file, container_working_dir)
         copy_to_container(container_, py_file, container_working_dir)
+        logger.info("Copied all files to container.")
 
+        logger.info("Starting simulation....")
         # Set environment variables and execute the script
         execute_script_in_container(container_, py_file)
+        logger.info("Finished simulation....")
 
         # ensure proper output dir exists for host
         host_output_dir.mkdir(parents=True, exist_ok=True)
@@ -200,6 +220,7 @@ if __name__ == "__main__":
             container_working_dir.joinpath(container_out_dir),
             host_output_dir,
         )
+        logger.info(f"Finished copying files from container to {host_output_dir}.")
 
     finally:
         client.close()
