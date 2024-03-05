@@ -25,7 +25,6 @@ class HelmholtzSolver:
         mesh_builder = MeshBuilder(description, mesh_path)
         mesh_builder.build()
         msh, ct, ft = get_mesh(mesh_path, comm=MPI.COMM_SELF)
-        mesh_builder.delete_msh_files()
 
         # Define function space
         v = dolfinx.fem.FunctionSpace(
@@ -94,3 +93,6 @@ class HelmholtzSolver:
 
         # Close writer
         writer.close()
+
+        # cleanup
+        mesh_builder.delete_msh_files()
