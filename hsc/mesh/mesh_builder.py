@@ -6,9 +6,18 @@ from typing import List, Tuple
 import gmsh
 import numpy as np
 
-from hsc.domain_properties import CShapeDescription, CylinderDescription, Description, NoneDescription
+from hsc.domain_properties import (
+    CShapeDescription,
+    CylinderDescription,
+    Description,
+    NoneDescription,
+)
 
-from .crystal_domain_builder import CrystalDomainBuilder, CShapedCrystalDomainBuilder, CylindricalCrystalDomainBuilder
+from .crystal_domain_builder import (
+    CrystalDomainBuilder,
+    CShapedCrystalDomainBuilder,
+    CylindricalCrystalDomainBuilder,
+)
 from .gmsh_builder import GmshBuilder
 
 
@@ -25,13 +34,18 @@ class MeshBuilder(GmshBuilder):
         elif isinstance(description.crystal, NoneDescription):
             db = CrystalDomainBuilder
         else:
-            warnings.warn(f"Unknown crystal type {description.crystal}. Defaulting to None!", category=UserWarning)
+            warnings.warn(
+                f"Unknown crystal type {description.crystal}. Defaulting to None!",
+                category=UserWarning,
+            )
             db = CrystalDomainBuilder
         self.domain_builder = db(description)
 
     def build(self):
         gmsh.initialize()
-        gmsh.option.setNumber("General.Verbosity", 1)  # set verbosity level (still prints warnings)
+        gmsh.option.setNumber(
+            "General.Verbosity", 1
+        )  # set verbosity level (still prints warnings)
         gmsh.model.add(f"model_{self.description.unique_id}")
 
         self.build_basic_shapes()
@@ -44,10 +58,14 @@ class MeshBuilder(GmshBuilder):
         self.save_mesh()
         gmsh.finalize()
 
+    def delete_msh_files(self):
+        self.out_file.unlink()
+
     def set_mesh_properties(self):
         """Sets properties that the meshing algorithm needs."""
         gmsh.option.setNumber(
-            "Mesh.MeshSizeMax", min(self.description.wave_lengths) / self.description.elements_per_lambda
+            "Mesh.MeshSizeMax",
+            min(self.description.wave_lengths) / self.description.elements_per_lambda,
         )
         gmsh.option.setNumber("Mesh.MeshSizeFromCurvature", 30)
 
@@ -70,14 +88,26 @@ class MeshBuilder(GmshBuilder):
         # left space, domain, right space
         box = self.description.left_box
         if box.size[0] > 0:
-            tags.append(self.factory.addRectangle(box.x_min, box.y_min, 0.0, box.size[0], box.size[1]))
+            tags.append(
+                self.factory.addRectangle(
+                    box.x_min, box.y_min, 0.0, box.size[0], box.size[1]
+                )
+            )
         tags.append(self.domain_builder.build())
         box = self.description.right_box
         if box.size[0] > 0:
-            tags.append(self.factory.addRectangle(box.x_min, box.y_min, 0.0, box.size[0], box.size[1]))
+            tags.append(
+                self.factory.addRectangle(
+                    box.x_min, box.y_min, 0.0, box.size[0], box.size[1]
+                )
+            )
         # absorbers
         for box in self.description.absorber_boxes.values():
-            tags.append(self.factory.add_rectangle(box.x_min, box.y_min, 0.0, box.size[0], box.size[1]))
+            tags.append(
+                self.factory.add_rectangle(
+                    box.x_min, box.y_min, 0.0, box.size[0], box.size[1]
+                )
+            )
 
         return tags
 
@@ -105,7 +135,9 @@ class MeshBuilder(GmshBuilder):
         surf_categories = defaultdict(list)
 
         for _, surf in all_surfaces:
-            com = np.array(self.factory.getCenterOfMass(2, surf)).reshape((3, 1))  # reshape to use bbox
+            com = np.array(self.factory.getCenterOfMass(2, surf)).reshape(
+                (3, 1)
+            )  # reshape to use bbox
             # find absorbers by calculating distance to inner box (including crystal domain and right spacer)
             if self.description.left_box.inside(com).size:
                 surf_categories["left_side"].append(surf)
