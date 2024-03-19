@@ -63,11 +63,47 @@ class MeshBuilder(GmshBuilder):
 
     def set_mesh_properties(self):
         """Sets properties that the meshing algorithm needs."""
-        gmsh.option.setNumber(
+        self.factory.synchronize()
+
+        resolution = min(self.description.wave_lengths) / self.description.elements_per_lambda
+        curve_resolution = self.description.c / 20000 / self.description.elements_per_lambda
+
+        # curves
+        curves = self.factory.get_entities(1)
+
+        # relevant curves
+        relevant_curves = []
+        for curve in curves:
+            com = self.factory.get_center_of_mass(*curve)
+            if len(self.description.crystal_box.inside(np.array(com).reshape(-1, 1))) != 0:
+                relevant_curves.append(curve[1])
+            elif np.isclose(self.description.crystal_box.x_min, com[0]) or np.isclose(
+                    self.description.crystal_box.x_max, com[0]):
+                relevant_curves.append(curve[1])
+
+        # field
+        distance = gmsh.model.mesh.field.add('Distance')
+        gmsh.model.mesh.field.setNumbers(distance, 'CurvesList', relevant_curves)
+        gmsh.model.mesh.field.setNumber(distance, "Sampling", 100)
+
+        threshold = gmsh.model.mesh.field.add("Threshold")
+        gmsh.model.mesh.field.setNumber(threshold, "IField", distance)
+        gmsh.model.mesh.field.setNumber(threshold, "SizeMin", curve_resolution)
+        gmsh.model.mesh.field.setNumber(threshold, "SizeMax", resolution)
+        gmsh.model.mesh.field.setNumber(threshold, "DistMin", self.description.crystal.grid_size / 20)
+        gmsh.model.mesh.field.setNumber(threshold, "DistMax", self.description.crystal.grid_size / 5)
+
+        gmsh.model.mesh.field.setAsBackgroundMesh(threshold)
+
+        gmsh.option.setNumber("Mesh.MeshSizeExtendFromBoundary", 0)
+        gmsh.option.setNumber("Mesh.MeshSizeFromPoints", 0)
+        gmsh.option.setNumber("Mesh.MeshSizeFromCurvature", 0)
+
+        """gmsh.option.setNumber(
             "Mesh.MeshSizeMax",
-            min(self.description.wave_lengths) / self.description.elements_per_lambda,
-        )
-        gmsh.option.setNumber("Mesh.MeshSizeFromCurvature", 30)
+            resolution
+        )"""
+        # gmsh.option.setNumber("Mesh.MeshSizeFromCurvature", 30)
 
     def generate_mesh(self):
         """Generates the mesh."""
