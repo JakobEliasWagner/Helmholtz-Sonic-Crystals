@@ -1,0 +1,29 @@
+hsc.preprocessing package
+=========================
+
+Submodules
+----------
+
+hsc.preprocessing.build\_pressure\_dataset module
+-------------------------------------------------
+
+.. automodule:: hsc.preprocessing.build_pressure_dataset
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hsc.preprocessing.build\_transmisson\_loss\_dataset module
+----------------------------------------------------------
+
+.. automodule:: hsc.preprocessing.build_transmisson_loss_dataset
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: hsc.preprocessing
+   :members:
+   :undoc-members:
+   :show-inheritance:

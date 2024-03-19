@@ -1,0 +1,45 @@
+hsc.mesh package
+================
+
+Submodules
+----------
+
+hsc.mesh.crystal\_builder module
+--------------------------------
+
+.. automodule:: hsc.mesh.crystal_builder
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hsc.mesh.crystal\_domain\_builder module
+----------------------------------------
+
+.. automodule:: hsc.mesh.crystal_domain_builder
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hsc.mesh.gmsh\_builder module
+-----------------------------
+
+.. automodule:: hsc.mesh.gmsh_builder
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hsc.mesh.mesh\_builder module
+-----------------------------
+
+.. automodule:: hsc.mesh.mesh_builder
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: hsc.mesh
+   :members:
+   :undoc-members:
+   :show-inheritance:
