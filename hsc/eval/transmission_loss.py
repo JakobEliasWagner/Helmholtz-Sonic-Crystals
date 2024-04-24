@@ -22,7 +22,7 @@ def transmission_loss(data_set: HelmholtzDataset, p_0: Optional[float] = None) -
     idx_in = np.where(np.isclose(data_set.x[:, 0], data_set.description.crystal_box.x_min))[0]
     y_in = data_set.x[idx_in, 1]
     if p_0:
-        p_in = np.ones(data_set.p[:, idx_in].shape)
+        p_in = p_0 * np.ones(data_set.p[:, idx_in].shape)
     else:
         p_in = data_set.p[:, idx_in]
 

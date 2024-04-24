@@ -48,6 +48,9 @@ class Description:
         }
     )
 
+    # domain_status
+    processed: bool = False
+
     # derived properties
     height: float = dataclasses.field(init=False)
     ks: np.array = dataclasses.field(init=False)
@@ -130,5 +133,6 @@ class Description:
         """
         out_dir.mkdir(parents=True, exist_ok=True)
         file_path = out_dir.joinpath(f"{self.unique_id}_description.json")
+        file_path.unlink(missing_ok=True)
         with open(file_path, "w") as file_handle:
             json.dump(self.serialize(), file_handle)

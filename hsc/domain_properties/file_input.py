@@ -11,43 +11,6 @@ from . import CShapeDescription, CylinderDescription, Description, NoneDescripti
 from .absorber_description import AbsorberDescription, AdiabaticAbsorberDescription
 from .crystal_description import CrystalDescription
 
-# available sampling strategies
-SAMPLING_STRATEGIES = {
-    "linspace": np.linspace,
-    "uniform": np.random.uniform,
-}
-
-
-def str_set_to_tuple(str_set: str) -> Tuple[float, float, int, str]:
-    """Converts str tuple to a tuple which can be used to sample a 1d domain.
-
-    Args:
-        str_set: tuple in str format with four elements
-
-    Returns: Index 0 is the starting point, 1 is the end point, 2 is the number of
-        samples, and 3 is the str name of the sampling strategy.
-
-    """
-    pattern = f'[{re.escape(" ()")}]'
-    str_set = re.sub(pattern, "", str_set)
-    str_set = str_set.split(",")
-    return float(str_set[0]), float(str_set[1]), int(str_set[2]), str_set[3]
-
-
-def sample(low: float, high: float, size: int, strategy_name: str) -> np.array:
-    """Samples a 1d domain according to a specific sampling strategy.
-
-    Args:
-        low: lower limit
-        high: upper limit
-        size: number of samples within the interval
-        strategy_name: str, name of the sampling strategy
-
-    Returns: sampled 1d domain according to strategy.
-    """
-    sampling_strategy = SAMPLING_STRATEGIES[strategy_name]
-    return sampling_strategy(low, high, size)
-
 
 def read_frequency(config: configparser.ConfigParser) -> np.array:
     """Reads the frequency from a configparser.
@@ -59,8 +22,11 @@ def read_frequency(config: configparser.ConfigParser) -> np.array:
 
     Returns: array, containing all frequencies that should be sampled.
     """
-    freq_tuple = str_set_to_tuple(config["PHYSICS"]["frequencies"])
-    samples = sample(*freq_tuple)
+    freq_max = float(config["PHYSICS"]["frequency_max"])
+    freq_min = float(config["PHYSICS"]["frequency_min"])
+    freq_n = int(config["PHYSICS"]["frequency_samples"])
+    samples = np.linspace(freq_min, freq_max, freq_n)
+
     return samples
 
 
@@ -74,7 +40,7 @@ def read_crystal(config: configparser.ConfigParser) -> CrystalDescription:
         A description of a crystal.
     """
     grid_size = float(config["CRYSTAL"]["grid_size"])
-    n = int(config["CRYSTAL"]["n"])
+    n = int(config["CRYSTAL"]["n_crystals"])
 
     return CrystalDescription(grid_size, n)
 
@@ -99,8 +65,12 @@ def read_cylindrical_crystal(config: configparser.ConfigParser) -> List[CrystalD
 
     Returns: list, all possible crystal descriptions described by config.
     """
-    radii_tuple = str_set_to_tuple(config["CRYSTAL"]["radius"])
-    radii = sample(*radii_tuple)
+    radius_max = float(config["CRYSTAL"]["radius_max"])
+    radius_min = float(config["CRYSTAL"]["radius_min"])
+    n_radii_sample = int(config["CRYSTAL"]["n_samples"])
+
+    radii = np.random.rand(n_radii_sample)
+    radii = radii * (radius_max - radius_min) + radius_min
 
     c = read_crystal(config)
 
@@ -122,29 +92,43 @@ def read_c_shaped_crystal(config: configparser.ConfigParser) -> List[CrystalDesc
     c = read_crystal(config)
 
     # c-shape
-    outer_radii_tuple = str_set_to_tuple(config["CRYSTAL"]["radius"])
-    outer_radii = sample(*outer_radii_tuple)
+    outer_radii_tuple = (
+        float(config["CRYSTAL"]["radius_min"]),
+        float(config["CRYSTAL"]["radius_max"])
+    )
+    inner_radii_tuple = (
+        float(config["CRYSTAL"]["inner_radius_min"]),
+        float(config["CRYSTAL"]["inner_radius_max"])
+    )
+    gap_widths_tuple = (
+        float(config["CRYSTAL"]["gap_width_min"]),
+        float(config["CRYSTAL"]["gap_width_max"])
+    )
 
-    inner_radii_tuple = str_set_to_tuple(config["CRYSTAL"]["inner_radius"])
-    inner_radii = sample(*inner_radii_tuple)
+    # constraints
+    tol = float(config["CRYSTAL"]["tol"])
+    constraints = [
+        lambda a: a[0] - a[1] >= tol,
+        lambda a: a[1] - a[2] >= tol,
+    ]
 
-    gap_widths_tuple = str_set_to_tuple(config["CRYSTAL"]["gap_width"])
-    gap_widths = sample(*gap_widths_tuple)
+    n_samples = int(config["CRYSTAL"]["n_samples"])
+    samples = []
+    while len(samples) != n_samples:
+        sample = np.random.rand(3)
+        sample[0] = sample[0] * (outer_radii_tuple[1] - outer_radii_tuple[0]) + outer_radii_tuple[0]
+        sample[1] = sample[1] * (inner_radii_tuple[1] - inner_radii_tuple[0]) + inner_radii_tuple[0]
+        sample[2] = sample[2] * (gap_widths_tuple[1] - gap_widths_tuple[0]) + gap_widths_tuple[0]
 
-    # all permutations
-    outer_radii, inner_radii, gap_widths = np.meshgrid(outer_radii, inner_radii, gap_widths)
+        is_in_constraints = all([c(sample) for c in constraints])
+        if not is_in_constraints:
+            continue
 
-    # prepare
-    outer_radii = outer_radii.flatten()
-    inner_radii = inner_radii.flatten()
-    gap_widths = gap_widths.flatten()
-
-    inner_radii = outer_radii * inner_radii
-    gap_widths = inner_radii * gap_widths
+        samples.append(sample)
 
     return [
         CShapeDescription(c.grid_size, c.n, outer, inner, gap)
-        for outer, inner, gap in zip(outer_radii, inner_radii, gap_widths)
+        for outer, inner, gap in samples
     ]
 
 
@@ -170,7 +154,7 @@ def read_crystal_config(config: configparser.ConfigParser) -> List[CrystalDescri
 
 
 def read_adiabatic_absorber_config(
-    config: configparser.ConfigParser, lambda_max: float
+        config: configparser.ConfigParser, lambda_max: float
 ) -> AdiabaticAbsorberDescription:
     """Defines adiabatic absorber description from config.
 

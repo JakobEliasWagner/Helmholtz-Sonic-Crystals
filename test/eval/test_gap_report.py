@@ -2,7 +2,7 @@ import pathlib
 import tempfile
 
 import pytest
-from eval import GapReport
+from hsc.eval import GapReport
 
 
 @pytest.mark.slow

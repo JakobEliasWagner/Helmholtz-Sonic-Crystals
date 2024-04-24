@@ -2,7 +2,7 @@ import pathlib
 import tempfile
 
 import pytest
-from eval import PressureReport
+from hsc.eval import PressureReport
 
 
 @pytest.mark.slow

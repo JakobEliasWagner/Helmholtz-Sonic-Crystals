@@ -27,6 +27,8 @@ class Helmholtz:
 
     def __init__(self, problem_description_file: pathlib.Path, out_dir: pathlib.Path):
         self.descriptions = read_config(problem_description_file)
+        for des in self.descriptions:
+            des.save_to_json(out_dir)
         self.out_dir = out_dir
 
     def run(self, n_threads: int = 1):
@@ -58,10 +60,12 @@ class Helmholtz:
     def run_single_description(self, args):
         i, description, queue = args
 
-        description.save_to_json(self.out_dir)
-
         solver = HelmholtzSolver(self.out_dir, ("CG", 2))
         solver(description)
+
+        # update description
+        description.processed = True
+        description.save_to_json(self.out_dir)
 
         # update queue
         queue.put(i)
