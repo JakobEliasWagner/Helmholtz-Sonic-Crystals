@@ -14,8 +14,8 @@ parser.add_argument("--n_threads", required=False, default=1)
 args = parser.parse_args()
 
 # Assign variables from arguments
-in_file = pathlib.Path.cwd().joinpath(args.input_file)
-out_dir = pathlib.Path.cwd().joinpath(args.output_dir)
+in_file = pathlib.Path(args.input_file).resolve()
+out_dir = pathlib.Path(args.output_dir).resolve()
 n_threads = int(args.n_threads)
 
 
