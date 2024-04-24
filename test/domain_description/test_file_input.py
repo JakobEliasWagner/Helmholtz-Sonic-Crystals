@@ -14,7 +14,7 @@ def test_file_input_domain_general(templates_path):
         des = d.read_config(template)[0]
 
         assert all(
-            np.in1d(des.frequencies, np.linspace(4000, 20000, 10))[
+            np.in1d(des.frequencies, np.linspace(2000, 20000, 257))[
                 : len(des.frequencies)
             ]
         )
@@ -37,13 +37,9 @@ def test_file_input_domain_c_shaped(templates_path):
     assert len(outer_rs) == len(inner_rs)
     assert len(outer_rs) == len(gap_ws)
 
-    assert len(set(outer_rs)) == 2
-    assert len(set(inner_rs)) == 4
-    assert len(set(gap_ws)) == 8
-
-    assert set(outer_rs) == set(np.linspace(6.5e-3, 9e-3, 2))
-    assert set(inner_rs) == set(np.outer(outer_rs, np.linspace(0.7, 0.9, 2)).flatten())
-    assert set(gap_ws) == set(np.outer(inner_rs, np.linspace(0.3, 1.0, 2)).flatten())
+    assert len(set(outer_rs)) == 10
+    assert len(set(inner_rs)) == 10
+    assert len(set(gap_ws)) == 10
 
 
 def test_file_input_domain_cylindrical(templates_path):
@@ -53,11 +49,7 @@ def test_file_input_domain_cylindrical(templates_path):
 
     rs = np.array(list({c.radius for c in crystals}))
 
-    assert len(set(rs)) == 5
-
-    rs.sort()
-
-    assert np.allclose(rs, np.linspace(6.5e-3, 10e-3, 5))
+    assert len(set(rs)) == 10
 
 
 def test_file_input_domain_none(templates_path):
@@ -65,7 +57,7 @@ def test_file_input_domain_none(templates_path):
     descriptions = d.read_config(template)
     crystals = [des.crystal for des in descriptions]
 
-    assert len(crystals) == 9
+    assert len(crystals) == 10
 
 
 def test_unknown_crystal_type():

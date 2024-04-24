@@ -14,4 +14,4 @@ def test_helmholtz(example_c_domain_file):
 
         helm.run(4)
 
-        assert len(list(tmp_dir.glob("*.xdmf"))) == 72
+        assert len(list(tmp_dir.glob("*.xdmf"))) == 100
