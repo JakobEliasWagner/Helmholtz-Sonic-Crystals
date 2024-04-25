@@ -10,7 +10,7 @@ class AbsorberDescription(ABC):
     on the left and right hand side of the simulation domain.
     """
 
-    depth: float  # depth expressed as multiples of a wavelength
+    depth: float  # in meters
 
 
 @dataclasses.dataclass

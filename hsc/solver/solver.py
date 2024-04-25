@@ -36,12 +36,19 @@ class HelmholtzSolver:
 
         # define domain parameters
         p0 = 1.0
-        ks = dolfinx.fem.Function(v)  # squared wave number with pml
-        # alpha = dolfinx.fem.Function(v)
+        x_tilde = dolfinx.fem.Function(v)
+        alpha = dolfinx.fem.Function(v)
         sigma = AdiabaticAbsorber(description)
 
         p_i = dolfinx.fem.Function(v)  # incident wave
+
         dx = ufl.Measure("dx", msh, subdomain_data=ct)
+        dx_domain = (
+            dx(description.indices["left_side"])
+            + dx(description.indices["crystal_domain"])
+            + dx(description.indices["right_side"])
+        )
+        dx_pml = dx(description.indices["absorber"])
 
         # Define variational problem
         p_s = ufl.TrialFunction(v)
@@ -58,18 +65,28 @@ class HelmholtzSolver:
         writer.write_mesh(msh)
 
         for i, (k0, f) in enumerate(zip(description.ks, description.frequencies)):
-            ks.interpolate(lambda x: (k0 * (1 + 1j * sigma.eval(x) / k0)) ** 2)
+            x_tilde.interpolate(lambda x: 1 + sigma.eval(x) / (1j * k0))
+            j = ufl.as_matrix(((x_tilde, 0, 0), (0, 1, 0), (0, 0, 1)))
+            j_inv = ufl.inv(j)
+            j_det = ufl.det(j)
+
+            alpha.interpolate(
+                lambda x: 1 / (1 + 1j * sigma.eval(x) / k0 * description.c)
+            )
+
             p_i.interpolate(lambda x: p0 * np.exp(1j * k0 * x[0]))
 
             # assemble problem
             lhs = (
-                ufl.inner(ufl.grad(p_s), ufl.grad(xi)) * dx
-                - ks * ufl.inner(p_s, xi) * dx
-            )
+                ufl.inner(ufl.grad(p_s), ufl.grad(xi)) - k0**2 * ufl.inner(p_s, xi)
+            ) * dx_domain
+
+            lhs += (ufl.inner(j_inv * ufl.grad(p_s), j_inv * ufl.grad(xi))) * dx_pml
+            lhs -= (-(k0**2) * ufl.inner(p_s, xi) * j_det) * dx_pml
+
             rhs = (
-                -ufl.inner(ufl.grad(p_i), ufl.grad(xi)) * dx
-                + k0**2 * ufl.inner(p_i, xi) * dx
-            )
+                -ufl.inner(ufl.grad(p_i), ufl.grad(xi)) + k0**2 * ufl.inner(p_i, xi)
+            ) * dx
 
             # compute solution
             problem = LinearProblem(
