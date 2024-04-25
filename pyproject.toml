@@ -36,7 +36,8 @@ dependencies = [
     "pytest-cov",
     "sphinx",
     "docker",
-    "loguru"
+    "loguru",
+    "tqdm"
 ]
 
 [build-system]
