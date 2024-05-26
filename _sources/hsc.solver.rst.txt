@@ -1,0 +1,45 @@
+hsc.solver package
+==================
+
+Submodules
+----------
+
+hsc.solver.adiabatic\_absorber module
+-------------------------------------
+
+.. automodule:: hsc.solver.adiabatic_absorber
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hsc.solver.solver module
+------------------------
+
+.. automodule:: hsc.solver.solver
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hsc.solver.util module
+----------------------
+
+.. automodule:: hsc.solver.util
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hsc.solver.wave\_number\_function module
+----------------------------------------
+
+.. automodule:: hsc.solver.wave_number_function
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: hsc.solver
+   :members:
+   :undoc-members:
+   :show-inheritance:
