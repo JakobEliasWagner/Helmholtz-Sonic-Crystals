@@ -37,7 +37,9 @@ dependencies = [
     "sphinx",
     "docker",
     "loguru",
-    "tqdm"
+    "tqdm",
+    "scipy",
+    "scikit-image"
 ]
 
 [build-system]
