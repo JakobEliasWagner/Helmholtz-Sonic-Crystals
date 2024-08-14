@@ -6,8 +6,8 @@ from hsc import Helmholtz
 
 # Setup argument parser
 parser = argparse.ArgumentParser(description="Creates a dataset for given input file.")
-parser.add_argument("--output_dir", required=True)
-parser.add_argument("--input_file", required=True)
+parser.add_argument("--output_dir", required=True, default="out/test")
+parser.add_argument("--input_file", required=True, default="domain.ini")
 parser.add_argument("--n_threads", required=False, default=1)
 
 # Parse arguments

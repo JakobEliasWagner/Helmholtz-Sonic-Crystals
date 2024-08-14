@@ -1,18 +1,23 @@
 import configparser
 import json
 import pathlib
-import re
 from random import shuffle
 from typing import List, Tuple
 
 import numpy as np
 
-from . import CShapeDescription, CylinderDescription, Description, NoneDescription
+from . import (
+    CShapeDescription,
+    CylinderDescription,
+    Description,
+    NoneDescription,
+    PerlinDescription,
+)
 from .absorber_description import AbsorberDescription, AdiabaticAbsorberDescription
 from .crystal_description import CrystalDescription
 
 
-def read_frequency(config: configparser.ConfigParser) -> np.array:
+def read_frequency(config: configparser.ConfigParser) -> Tuple[np.array, float]:
     """Reads the frequency from a configparser.
 
     The frequency can be inputted as the frequency.
@@ -25,9 +30,14 @@ def read_frequency(config: configparser.ConfigParser) -> np.array:
     freq_max = float(config["PHYSICS"]["frequency_max"])
     freq_min = float(config["PHYSICS"]["frequency_min"])
     freq_n = int(config["PHYSICS"]["frequency_samples"])
-    samples = np.linspace(freq_min, freq_max, freq_n)
+    freq_sampler = config["PHYSICS"]["frequency_sampler"]
 
-    return samples
+    if freq_sampler == "random":
+        samples = np.random.rand(freq_n) * (freq_max - freq_min) + freq_min
+    else:
+        samples = np.linspace(freq_min, freq_max, freq_n)
+
+    return samples, freq_max
 
 
 def read_crystal(config: configparser.ConfigParser) -> CrystalDescription:
@@ -57,7 +67,9 @@ def read_none_crystal(config: configparser.ConfigParser) -> List[CrystalDescript
     return [NoneDescription(grid_size=c.grid_size, n=c.n)]
 
 
-def read_cylindrical_crystal(config: configparser.ConfigParser) -> List[CrystalDescription]:
+def read_cylindrical_crystal(
+    config: configparser.ConfigParser,
+) -> List[CrystalDescription]:
     """Reads cylindrical crystal properties from config.
 
     Args:
@@ -77,7 +89,9 @@ def read_cylindrical_crystal(config: configparser.ConfigParser) -> List[CrystalD
     return [CylinderDescription(c.grid_size, c.n, radius) for radius in radii]
 
 
-def read_c_shaped_crystal(config: configparser.ConfigParser) -> List[CrystalDescription]:
+def read_c_shaped_crystal(
+    config: configparser.ConfigParser,
+) -> List[CrystalDescription]:
     """Reads C-shaped crystal properties from config.
 
     The C-shaped crystal is described by three individual properties. Each description is taken and arranged in a
@@ -94,15 +108,15 @@ def read_c_shaped_crystal(config: configparser.ConfigParser) -> List[CrystalDesc
     # c-shape
     outer_radii_tuple = (
         float(config["CRYSTAL"]["radius_min"]),
-        float(config["CRYSTAL"]["radius_max"])
+        float(config["CRYSTAL"]["radius_max"]),
     )
     inner_radii_tuple = (
         float(config["CRYSTAL"]["inner_radius_min"]),
-        float(config["CRYSTAL"]["inner_radius_max"])
+        float(config["CRYSTAL"]["inner_radius_max"]),
     )
     gap_widths_tuple = (
         float(config["CRYSTAL"]["gap_width_min"]),
-        float(config["CRYSTAL"]["gap_width_max"])
+        float(config["CRYSTAL"]["gap_width_max"]),
     )
 
     # constraints
@@ -116,9 +130,18 @@ def read_c_shaped_crystal(config: configparser.ConfigParser) -> List[CrystalDesc
     samples = []
     while len(samples) != n_samples:
         sample = np.random.rand(3)
-        sample[0] = sample[0] * (outer_radii_tuple[1] - outer_radii_tuple[0]) + outer_radii_tuple[0]
-        sample[1] = sample[1] * (inner_radii_tuple[1] - inner_radii_tuple[0]) + inner_radii_tuple[0]
-        sample[2] = sample[2] * (gap_widths_tuple[1] - gap_widths_tuple[0]) + gap_widths_tuple[0]
+        sample[0] = (
+            sample[0] * (outer_radii_tuple[1] - outer_radii_tuple[0])
+            + outer_radii_tuple[0]
+        )
+        sample[1] = (
+            sample[1] * (inner_radii_tuple[1] - inner_radii_tuple[0])
+            + inner_radii_tuple[0]
+        )
+        sample[2] = (
+            sample[2] * (gap_widths_tuple[1] - gap_widths_tuple[0])
+            + gap_widths_tuple[0]
+        )
 
         is_in_constraints = all([c(sample) for c in constraints])
         if not is_in_constraints:
@@ -130,6 +153,32 @@ def read_c_shaped_crystal(config: configparser.ConfigParser) -> List[CrystalDesc
         CShapeDescription(c.grid_size, c.n, outer, inner, gap)
         for outer, inner, gap in samples
     ]
+
+
+def read_perlin_crystal(config: configparser.ConfigParser) -> List[CrystalDescription]:
+    """Reads perlin noise crystal properties from config.
+
+    Args:
+        config: configparser instance containing the description of the domain (conforming to template).
+
+    Returns: list, all possible crystal descriptions described by config.
+    """
+    # generic crystal
+    c = read_crystal(config)
+
+    # perlin
+    n_perlin_min = int(config["CRYSTAL"]["n_min"])
+    n_perlin_max = int(config["CRYSTAL"]["n_max"])
+    n_perlin_grid = int(config["CRYSTAL"]["n_perlin_grid"])
+
+    n_samples = int(config["CRYSTAL"]["n_samples"])
+    smoothing_steps = int(config["CRYSTAL"]["smoothing_steps"])
+
+    return [
+        PerlinDescription(
+            c.grid_size, c.n, n_perlin_min, n_perlin_max, n_perlin_grid, smoothing_steps
+        )
+    ] * n_samples
 
 
 def read_crystal_config(config: configparser.ConfigParser) -> List[CrystalDescription]:
@@ -148,13 +197,15 @@ def read_crystal_config(config: configparser.ConfigParser) -> List[CrystalDescri
         read_func = read_cylindrical_crystal
     elif crystal_type == "C-Shaped":
         read_func = read_c_shaped_crystal
+    elif crystal_type == "Perlin":
+        read_func = read_perlin_crystal
     else:
         raise TypeError(f"Unknown crystal type {crystal_type}")
     return read_func(config)
 
 
 def read_adiabatic_absorber_config(
-        config: configparser.ConfigParser, lambda_max: float
+    config: configparser.ConfigParser, lambda_max: float
 ) -> AdiabaticAbsorberDescription:
     """Defines adiabatic absorber description from config.
 
@@ -172,7 +223,9 @@ def read_adiabatic_absorber_config(
     return AdiabaticAbsorberDescription(depth=n * lambda_max, round_trip=rt, degree=deg)
 
 
-def read_absorber_config(config: configparser.ConfigParser, lambda_max: float) -> AbsorberDescription:
+def read_absorber_config(
+    config: configparser.ConfigParser, lambda_max: float
+) -> AbsorberDescription:
     """Defines absorber description from config.
 
     Args:
@@ -211,10 +264,11 @@ def read_config(file: pathlib.Path) -> List[Description]:
     n_left = float(config["DOMAIN"]["n_left"])
     n_right = float(config["DOMAIN"]["n_right"])
     elements = float(config["DOMAIN"]["elements_per_wavelength"])
+    elements_surf = float(config["DOMAIN"]["elements_per_wavelength_surf"])
 
     descriptions = []
     for crystal_description in crystal_descriptions:
-        frequencies = read_frequency(config)
+        frequencies, max_freq = read_frequency(config)
         # find frequency spectra
         frequencies.sort()  # they might be sampled randomly
         split_frequencies = []
@@ -230,15 +284,19 @@ def read_config(file: pathlib.Path) -> List[Description]:
         split_frequencies.append(frequencies[arr_start:])
 
         for frequency_spectrum in split_frequencies:
-            absorber_description = read_absorber_config(config, c / min(frequency_spectrum))
+            absorber_description = read_absorber_config(
+                config, c / min(frequency_spectrum)
+            )
             descriptions.append(
                 Description(
                     frequencies=frequency_spectrum,
+                    max_frequency=max_freq,
                     rho=rho,
                     c=c,
                     n_left=n_left,
                     n_right=n_right,
                     elements_per_lambda=elements,
+                    elements_per_lambda_surf=elements_surf,
                     absorber=absorber_description,
                     crystal=crystal_description,
                 )
@@ -253,14 +311,20 @@ def read_from_json(json_file: pathlib.Path):
     json_obj = json.loads(json_str)
 
     absorber = AdiabaticAbsorberDescription(
-        json_obj["absorber"]["depth"], json_obj["absorber"]["round_trip"], json_obj["absorber"]["degree"]
+        json_obj["absorber"]["depth"],
+        json_obj["absorber"]["round_trip"],
+        json_obj["absorber"]["degree"],
     )
 
     gs = json_obj["crystal"]["grid_size"]
     n = json_obj["crystal"]["n"]
     if "inner_radius" in json_obj["crystal"]:
         crystal = CShapeDescription(
-            gs, n, json_obj["crystal"]["radius"], json_obj["crystal"]["inner_radius"], json_obj["crystal"]["gap_width"]
+            gs,
+            n,
+            json_obj["crystal"]["radius"],
+            json_obj["crystal"]["inner_radius"],
+            json_obj["crystal"]["gap_width"],
         )
     elif "radius" in json_obj["crystal"]:
         crystal = CylinderDescription(gs, n, json_obj["crystal"]["radius"])
@@ -269,11 +333,13 @@ def read_from_json(json_file: pathlib.Path):
 
     return Description(
         frequencies=np.array(json_obj["frequencies"]),
+        max_frequency=float(json_obj["max_frequency"]),
         rho=json_obj["rho"],
         c=json_obj["c"],
         n_left=json_obj["n_left"],
         n_right=json_obj["n_right"],
         elements_per_lambda=json_obj["elements_per_lambda"],
+        elements_per_lambda_surf=json_obj["elements_per_lambda_surf"],
         absorber=absorber,
         crystal=crystal,
     )

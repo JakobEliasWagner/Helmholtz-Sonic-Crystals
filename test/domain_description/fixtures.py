@@ -35,8 +35,10 @@ def descriptions(absorber_description, crystal_descriptions):
             n_left=0.55,
             n_right=0.55,
             elements_per_lambda=6.2,
+            elements_per_lambda_surf=8.9,
             crystal=c_des,
             absorber=absorber_description,
+            max_frequency=20000,
         )
         for c_des in crystal_descriptions
     ]

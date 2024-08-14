@@ -2,7 +2,10 @@ from typing import List
 
 from hsc.domain_properties import Description
 
-from .crystal_builder import CrystalBuilder, CShapedCrystalBuilder, CylindricalCrystalBuilder
+from .crystal_builder import CrystalBuilder
+from .crystal_builder_c_shaped import CShapedCrystalBuilder
+from .crystal_builder_cylindrical import CylindricalCrystalBuilder
+from .crystal_builder_perlin import PerlinCrystalBuilder
 from .gmsh_builder import GmshBuilder
 
 
@@ -13,7 +16,9 @@ class CrystalDomainBuilder(GmshBuilder):
     the simulation domain in which crystals are placed for computational simulations.
     """
 
-    def __init__(self, description: Description, crystal_builder: CrystalBuilder = None):
+    def __init__(
+        self, description: Description, crystal_builder: CrystalBuilder = None
+    ):
         """
 
         Args:
@@ -47,7 +52,9 @@ class CrystalDomainBuilder(GmshBuilder):
             gmsh index to the rectangle.
         """
         box = self.description.crystal_box
-        domain = self.factory.addRectangle(box.x_min, box.y_min, 0.0, box.size[0], box.size[1])
+        domain = self.factory.addRectangle(
+            box.x_min, box.y_min, 0.0, box.size[0], box.size[1]
+        )
         return domain
 
     def define_tools(self) -> List[int]:
@@ -85,3 +92,10 @@ class CylindricalCrystalDomainBuilder(CrystalDomainBuilder):
 
     def __init__(self, description: Description):
         super().__init__(description, CylindricalCrystalBuilder(description))
+
+
+class PerlinCrystalDomainBuilder(CrystalDomainBuilder):
+    """Class for building simulation domains in which perlin crystals are placed."""
+
+    def __init__(self, description: Description):
+        super().__init__(description, PerlinCrystalBuilder(description))
