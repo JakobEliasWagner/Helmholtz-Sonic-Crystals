@@ -1,0 +1,54 @@
+{
+    "image": "dolfinx/dolfinx:stable",
+    "containerEnv": {
+        "PKG_CONFIG_PATH": "/usr/local/dolfinx-complex/lib/pkgconfig:$PKG_CONFIG_PATH",
+        "PETSC_ARCH": "linux-gnu-complex-32",
+        "PYTHONPATH": "/usr/local/dolfinx-complex/lib/python3.10/dist-packages:$PYTHONPATH",
+        "LD_LIBRARY_PATH": "/usr/local/dolfinx-complex/lib:$LD_LIBRARY_PATH"
+    },
+    "mounts": [
+        "type=bind,source=${localEnv:HOME}/.ssh,target=/root/.ssh,readonly",
+    ],
+    "onCreateCommand": "pip install -e .; pre-commit install",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "njpwerner.autodocstring",
+                "jeff-hykin.better-cpp-syntax",
+                "bungcip.better-toml",
+                "vadimcn.vscode-lldb",
+                "streetsidesoftware.code-spell-checker",
+                "fill-labs.dependi",
+                "batisteo.vscode-django",
+                "cschlosser.doxdocgen",
+                "swyddfa.esbonio",
+                "VisualStudioExptTeam.vscodeintellicode",
+                "VisualStudioExptTeam.intellicode-api-usage-examples",
+                "k--kato.intellij-idea-keybindings",
+                "wholroyd.jinja",
+                "ms-toolsai.jupyter",
+                "ms-toolsai.vscode-jupyter-cell-tags",
+                "ms-toolsai.jupyter-keymap",
+                "ms-toolsai.jupyter-renderers",
+                "ms-toolsai.vscode-jupyter-slideshow",
+                "matangover.mypy",
+                "ms-python.mypy-type-checker",
+                "frinkr.pdf",
+                "ms-python.vscode-pylance",
+                "ms-python.python",
+                "ms-python.debugpy",
+                "donjayamanne.python-environment-manager",
+                "tushortz.python-extended-snippets",
+                "donjayamanne.python-extension-pack",
+                "KevinRose.vsc-python-indent",
+                "mgesbert.python-path",
+                "lextudio.restructuredtext",
+                "trond-snekvik.simple-rst",
+                "charliermarsh.ruff",
+                "evgeniypeshkov.syntax-highlighter",
+                "jithurjacob.nbpreviewer",
+                "tomoki1207.pdf"
+            ]
+        }
+    }
+}
