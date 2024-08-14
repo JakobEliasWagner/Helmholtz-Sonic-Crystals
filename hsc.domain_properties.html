@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>hsc.domain_properties package &#8212; Helmholtz Sonic Crystals 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="hsc.eval package" href="hsc.eval.html" />
+    <link rel="prev" title="hsc package" href="hsc.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="hsc-domain-properties-package">
+<h1>hsc.domain_properties package<a class="headerlink" href="#hsc-domain-properties-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-hsc.domain_properties.absorber_description">
+<span id="hsc-domain-properties-absorber-description-module"></span><h2>hsc.domain_properties.absorber_description module<a class="headerlink" href="#module-hsc.domain_properties.absorber_description" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.domain_properties.absorber_description.AbsorberDescription">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.absorber_description.</span></span><span class="sig-name descname"><span class="pre">AbsorberDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.absorber_description.AbsorberDescription" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Holds information about absorbers.</p>
+<p>Absorbers are boundaries that truncate the domain in a finite space bigger than zero. Absorbers are placed commonly
+on the left and right hand side of the simulation domain.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.absorber_description.AbsorberDescription.depth">
+<span class="sig-name descname"><span class="pre">depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.absorber_description.AbsorberDescription.depth" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.domain_properties.absorber_description.AdiabaticAbsorberDescription">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.absorber_description.</span></span><span class="sig-name descname"><span class="pre">AdiabaticAbsorberDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round_trip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.absorber_description.AdiabaticAbsorberDescription" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.domain_properties.absorber_description.AbsorberDescription" title="hsc.domain_properties.absorber_description.AbsorberDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbsorberDescription</span></code></a></p>
+<p>Holds information about adiabatic absorbers.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.absorber_description.AdiabaticAbsorberDescription.degree">
+<span class="sig-name descname"><span class="pre">degree</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#hsc.domain_properties.absorber_description.AdiabaticAbsorberDescription.degree" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.absorber_description.AdiabaticAbsorberDescription.round_trip">
+<span class="sig-name descname"><span class="pre">round_trip</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1e-06</span></em><a class="headerlink" href="#hsc.domain_properties.absorber_description.AdiabaticAbsorberDescription.round_trip" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-hsc.domain_properties.crystal_description">
+<span id="hsc-domain-properties-crystal-description-module"></span><h2>hsc.domain_properties.crystal_description module<a class="headerlink" href="#module-hsc.domain_properties.crystal_description" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.domain_properties.crystal_description.CShapeDescription">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.crystal_description.</span></span><span class="sig-name descname"><span class="pre">CShapeDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.crystal_description.CShapeDescription" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.domain_properties.crystal_description.CrystalDescription" title="hsc.domain_properties.crystal_description.CrystalDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalDescription</span></code></a></p>
+<p>Holds information about a C-shaped crystal.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.crystal_description.CShapeDescription.gap_width">
+<span class="sig-name descname"><span class="pre">gap_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.crystal_description.CShapeDescription.gap_width" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.crystal_description.CShapeDescription.inner_radius">
+<span class="sig-name descname"><span class="pre">inner_radius</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.crystal_description.CShapeDescription.inner_radius" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.crystal_description.CShapeDescription.radius">
+<span class="sig-name descname"><span class="pre">radius</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.crystal_description.CShapeDescription.radius" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.domain_properties.crystal_description.CrystalDescription">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.crystal_description.</span></span><span class="sig-name descname"><span class="pre">CrystalDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.crystal_description.CrystalDescription" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Holds information about a crystal.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.crystal_description.CrystalDescription.grid_size">
+<span class="sig-name descname"><span class="pre">grid_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.crystal_description.CrystalDescription.grid_size" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.crystal_description.CrystalDescription.n">
+<span class="sig-name descname"><span class="pre">n</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#hsc.domain_properties.crystal_description.CrystalDescription.n" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.domain_properties.crystal_description.CylinderDescription">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.crystal_description.</span></span><span class="sig-name descname"><span class="pre">CylinderDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.crystal_description.CylinderDescription" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.domain_properties.crystal_description.CrystalDescription" title="hsc.domain_properties.crystal_description.CrystalDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalDescription</span></code></a></p>
+<p>Holds information about a cylindrical crystal.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.crystal_description.CylinderDescription.radius">
+<span class="sig-name descname"><span class="pre">radius</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.crystal_description.CylinderDescription.radius" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.domain_properties.crystal_description.NoneDescription">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.crystal_description.</span></span><span class="sig-name descname"><span class="pre">NoneDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.crystal_description.NoneDescription" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.domain_properties.crystal_description.CrystalDescription" title="hsc.domain_properties.crystal_description.CrystalDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalDescription</span></code></a></p>
+<p>A domain without crystals.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.domain_properties.crystal_description.PerlinDescription">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.crystal_description.</span></span><span class="sig-name descname"><span class="pre">PerlinDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_perlin_grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">301</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.crystal_description.PerlinDescription" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.domain_properties.crystal_description.CrystalDescription" title="hsc.domain_properties.crystal_description.CrystalDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalDescription</span></code></a></p>
+<p>Holds information about a random perlin noise crystal.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.crystal_description.PerlinDescription.n_max">
+<span class="sig-name descname"><span class="pre">n_max</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#hsc.domain_properties.crystal_description.PerlinDescription.n_max" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.crystal_description.PerlinDescription.n_min">
+<span class="sig-name descname"><span class="pre">n_min</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#hsc.domain_properties.crystal_description.PerlinDescription.n_min" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.crystal_description.PerlinDescription.n_perlin_grid">
+<span class="sig-name descname"><span class="pre">n_perlin_grid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">301</span></em><a class="headerlink" href="#hsc.domain_properties.crystal_description.PerlinDescription.n_perlin_grid" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.crystal_description.PerlinDescription.noise_grid">
+<span class="sig-name descname"><span class="pre">noise_grid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">array</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#hsc.domain_properties.crystal_description.PerlinDescription.noise_grid" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.crystal_description.PerlinDescription.smoothing_steps">
+<span class="sig-name descname"><span class="pre">smoothing_steps</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#hsc.domain_properties.crystal_description.PerlinDescription.smoothing_steps" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-hsc.domain_properties.domain_description">
+<span id="hsc-domain-properties-domain-description-module"></span><h2>hsc.domain_properties.domain_description module<a class="headerlink" href="#module-hsc.domain_properties.domain_description" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.domain_description.</span></span><span class="sig-name descname"><span class="pre">Description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequencies:</span> <span class="pre">~numpy.array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_frequency:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_left:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_right:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elements_per_lambda:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elements_per_lambda_surf:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">absorber:</span> <span class="pre">~hsc.domain_properties.absorber_description.AbsorberDescription</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crystal:</span> <span class="pre">~hsc.domain_properties.crystal_description.CrystalDescription</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices:</span> <span class="pre">dict</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processed:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.domain_description.Description" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Holds information of a domain on which only the frequency is varied.</p>
+<p>The reason for only varying the frequency in a single sample is that it may be easier to generate multiple samples
+on the same mesh. The frequency can but does not need to change the mesh of the domain. Compared to changing the
+parametrization of the crystals, this may save storage space.
+If the domain should be resampled for every simulation for every frequency, create one Description per frequency.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.absorber">
+<span class="sig-name descname"><span class="pre">absorber</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#hsc.domain_properties.absorber_description.AbsorberDescription" title="hsc.domain_properties.absorber_description.AbsorberDescription"><span class="pre">AbsorberDescription</span></a></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.absorber" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.absorber_boxes">
+<span class="sig-name descname"><span class="pre">absorber_boxes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D" title="hsc.utility.bounding_box.BoundingBox2D"><span class="pre">BoundingBox2D</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.absorber_boxes" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.c">
+<span class="sig-name descname"><span class="pre">c</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.c" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.crystal">
+<span class="sig-name descname"><span class="pre">crystal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#hsc.domain_properties.crystal_description.CrystalDescription" title="hsc.domain_properties.crystal_description.CrystalDescription"><span class="pre">CrystalDescription</span></a></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.crystal" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.crystal_box">
+<span class="sig-name descname"><span class="pre">crystal_box</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D" title="hsc.utility.bounding_box.BoundingBox2D"><span class="pre">BoundingBox2D</span></a></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.crystal_box" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.domain_box">
+<span class="sig-name descname"><span class="pre">domain_box</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D" title="hsc.utility.bounding_box.BoundingBox2D"><span class="pre">BoundingBox2D</span></a></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.domain_box" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.elements_per_lambda">
+<span class="sig-name descname"><span class="pre">elements_per_lambda</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.elements_per_lambda" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.elements_per_lambda_surf">
+<span class="sig-name descname"><span class="pre">elements_per_lambda_surf</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.elements_per_lambda_surf" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.frequencies">
+<span class="sig-name descname"><span class="pre">frequencies</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">array</span></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.frequencies" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.height">
+<span class="sig-name descname"><span class="pre">height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.height" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.indices">
+<span class="sig-name descname"><span class="pre">indices</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.indices" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.ks">
+<span class="sig-name descname"><span class="pre">ks</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">array</span></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.ks" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.left_box">
+<span class="sig-name descname"><span class="pre">left_box</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D" title="hsc.utility.bounding_box.BoundingBox2D"><span class="pre">BoundingBox2D</span></a></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.left_box" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.max_frequency">
+<span class="sig-name descname"><span class="pre">max_frequency</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.max_frequency" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.n_left">
+<span class="sig-name descname"><span class="pre">n_left</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.n_left" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.n_right">
+<span class="sig-name descname"><span class="pre">n_right</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.n_right" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.processed">
+<span class="sig-name descname"><span class="pre">processed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.processed" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.rho">
+<span class="sig-name descname"><span class="pre">rho</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.rho" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.right_box">
+<span class="sig-name descname"><span class="pre">right_box</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D" title="hsc.utility.bounding_box.BoundingBox2D"><span class="pre">BoundingBox2D</span></a></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.right_box" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.save_to_json">
+<span class="sig-name descname"><span class="pre">save_to_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.save_to_json" title="Link to this definition">¶</a></dt>
+<dd><p>Saves this object to the provided dir.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>out_dir</strong> – Path to the directory the json file is saved.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.serialize">
+<span class="sig-name descname"><span class="pre">serialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.serialize" title="Link to this definition">¶</a></dt>
+<dd><p>Serializes this object to a dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary containing the information of this class and its properties.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.unique_id">
+<span class="sig-name descname"><span class="pre">unique_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="hsc.utility.html#hsc.utility.unique_id.UniqueId" title="hsc.utility.unique_id.UniqueId"><span class="pre">UniqueId</span></a></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.unique_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.update_derived_properties">
+<span class="sig-name descname"><span class="pre">update_derived_properties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.update_derived_properties" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.domain_description.Description.wave_lengths">
+<span class="sig-name descname"><span class="pre">wave_lengths</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">array</span></em><a class="headerlink" href="#hsc.domain_properties.domain_description.Description.wave_lengths" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-hsc.domain_properties.file_input">
+<span id="hsc-domain-properties-file-input-module"></span><h2>hsc.domain_properties.file_input module<a class="headerlink" href="#module-hsc.domain_properties.file_input" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="hsc.domain_properties.file_input.read_absorber_config">
+<span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.file_input.</span></span><span class="sig-name descname"><span class="pre">read_absorber_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConfigParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#hsc.domain_properties.absorber_description.AbsorberDescription" title="hsc.domain_properties.absorber_description.AbsorberDescription"><span class="pre">AbsorberDescription</span></a></span></span><a class="headerlink" href="#hsc.domain_properties.file_input.read_absorber_config" title="Link to this definition">¶</a></dt>
+<dd><p>Defines absorber description from config.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lambda_max</strong> – </p></li>
+<li><p><strong>config</strong> – ConfigParser object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a description of an absorber.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hsc.domain_properties.file_input.read_adiabatic_absorber_config">
+<span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.file_input.</span></span><span class="sig-name descname"><span class="pre">read_adiabatic_absorber_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConfigParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#hsc.domain_properties.absorber_description.AdiabaticAbsorberDescription" title="hsc.domain_properties.absorber_description.AdiabaticAbsorberDescription"><span class="pre">AdiabaticAbsorberDescription</span></a></span></span><a class="headerlink" href="#hsc.domain_properties.file_input.read_adiabatic_absorber_config" title="Link to this definition">¶</a></dt>
+<dd><p>Defines adiabatic absorber description from config.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lambda_max</strong> – </p></li>
+<li><p><strong>config</strong> – ConfigParser object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>adiabatic absorber description</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hsc.domain_properties.file_input.read_c_shaped_crystal">
+<span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.file_input.</span></span><span class="sig-name descname"><span class="pre">read_c_shaped_crystal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConfigParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#hsc.domain_properties.crystal_description.CrystalDescription" title="hsc.domain_properties.crystal_description.CrystalDescription"><span class="pre">CrystalDescription</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.domain_properties.file_input.read_c_shaped_crystal" title="Link to this definition">¶</a></dt>
+<dd><p>Reads C-shaped crystal properties from config.</p>
+<p>The C-shaped crystal is described by three individual properties. Each description is taken and arranged in a
+meshgrid to sample every possible permutation of parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> – configparser instance containing the description of the domain (conforming to template).</p>
+</dd>
+</dl>
+<p>Returns: list, all possible crystal descriptions described by config.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hsc.domain_properties.file_input.read_config">
+<span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.file_input.</span></span><span class="sig-name descname"><span class="pre">read_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.domain_properties.file_input.read_config" title="Link to this definition">¶</a></dt>
+<dd><p>Reads a file and returns all possible descriptions of the domain that need to be solved.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file</strong> – ini-file, containing relevant information (template “input_file_template.ini”).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of all possible domain descriptions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hsc.domain_properties.file_input.read_crystal">
+<span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.file_input.</span></span><span class="sig-name descname"><span class="pre">read_crystal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConfigParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#hsc.domain_properties.crystal_description.CrystalDescription" title="hsc.domain_properties.crystal_description.CrystalDescription"><span class="pre">CrystalDescription</span></a></span></span><a class="headerlink" href="#hsc.domain_properties.file_input.read_crystal" title="Link to this definition">¶</a></dt>
+<dd><p>Read generic crystal properties from config.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> – configparser instance containing the description of the domain (conforming to template).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A description of a crystal.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hsc.domain_properties.file_input.read_crystal_config">
+<span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.file_input.</span></span><span class="sig-name descname"><span class="pre">read_crystal_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConfigParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#hsc.domain_properties.crystal_description.CrystalDescription" title="hsc.domain_properties.crystal_description.CrystalDescription"><span class="pre">CrystalDescription</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.domain_properties.file_input.read_crystal_config" title="Link to this definition">¶</a></dt>
+<dd><p>Defines a list of different crystal configurations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list containing all crystal configurations.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hsc.domain_properties.file_input.read_cylindrical_crystal">
+<span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.file_input.</span></span><span class="sig-name descname"><span class="pre">read_cylindrical_crystal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConfigParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#hsc.domain_properties.crystal_description.CrystalDescription" title="hsc.domain_properties.crystal_description.CrystalDescription"><span class="pre">CrystalDescription</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.domain_properties.file_input.read_cylindrical_crystal" title="Link to this definition">¶</a></dt>
+<dd><p>Reads cylindrical crystal properties from config.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> – configparser instance containing the description of the domain (conforming to template).</p>
+</dd>
+</dl>
+<p>Returns: list, all possible crystal descriptions described by config.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hsc.domain_properties.file_input.read_frequency">
+<span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.file_input.</span></span><span class="sig-name descname"><span class="pre">read_frequency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConfigParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">array</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.domain_properties.file_input.read_frequency" title="Link to this definition">¶</a></dt>
+<dd><p>Reads the frequency from a configparser.</p>
+<p>The frequency can be inputted as the frequency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> – configparser instance containing the description of the domain (conforming to template).</p>
+</dd>
+</dl>
+<p>Returns: array, containing all frequencies that should be sampled.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hsc.domain_properties.file_input.read_from_json">
+<span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.file_input.</span></span><span class="sig-name descname"><span class="pre">read_from_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.file_input.read_from_json" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hsc.domain_properties.file_input.read_none_crystal">
+<span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.file_input.</span></span><span class="sig-name descname"><span class="pre">read_none_crystal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConfigParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#hsc.domain_properties.crystal_description.CrystalDescription" title="hsc.domain_properties.crystal_description.CrystalDescription"><span class="pre">CrystalDescription</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.domain_properties.file_input.read_none_crystal" title="Link to this definition">¶</a></dt>
+<dd><p>No crystal descriptions are required in an empty domain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> – configparser instance containing the description of the domain (conforming to template).</p>
+</dd>
+</dl>
+<p>Returns: empty list.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hsc.domain_properties.file_input.read_perlin_crystal">
+<span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.file_input.</span></span><span class="sig-name descname"><span class="pre">read_perlin_crystal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConfigParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#hsc.domain_properties.crystal_description.CrystalDescription" title="hsc.domain_properties.crystal_description.CrystalDescription"><span class="pre">CrystalDescription</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.domain_properties.file_input.read_perlin_crystal" title="Link to this definition">¶</a></dt>
+<dd><p>Reads perlin noise crystal properties from config.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> – configparser instance containing the description of the domain (conforming to template).</p>
+</dd>
+</dl>
+<p>Returns: list, all possible crystal descriptions described by config.</p>
+</dd></dl>
+
+</section>
+<section id="module-hsc.domain_properties">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hsc.domain_properties" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.domain_properties.AdiabaticAbsorberDescription">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.</span></span><span class="sig-name descname"><span class="pre">AdiabaticAbsorberDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round_trip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.AdiabaticAbsorberDescription" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.domain_properties.absorber_description.AbsorberDescription" title="hsc.domain_properties.absorber_description.AbsorberDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbsorberDescription</span></code></a></p>
+<p>Holds information about adiabatic absorbers.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.AdiabaticAbsorberDescription.degree">
+<span class="sig-name descname"><span class="pre">degree</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#hsc.domain_properties.AdiabaticAbsorberDescription.degree" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.AdiabaticAbsorberDescription.depth">
+<span class="sig-name descname"><span class="pre">depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.AdiabaticAbsorberDescription.depth" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.AdiabaticAbsorberDescription.round_trip">
+<span class="sig-name descname"><span class="pre">round_trip</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1e-06</span></em><a class="headerlink" href="#hsc.domain_properties.AdiabaticAbsorberDescription.round_trip" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.domain_properties.CShapeDescription">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.</span></span><span class="sig-name descname"><span class="pre">CShapeDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.CShapeDescription" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.domain_properties.crystal_description.CrystalDescription" title="hsc.domain_properties.crystal_description.CrystalDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalDescription</span></code></a></p>
+<p>Holds information about a C-shaped crystal.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.CShapeDescription.gap_width">
+<span class="sig-name descname"><span class="pre">gap_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.CShapeDescription.gap_width" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.CShapeDescription.grid_size">
+<span class="sig-name descname"><span class="pre">grid_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.CShapeDescription.grid_size" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.CShapeDescription.inner_radius">
+<span class="sig-name descname"><span class="pre">inner_radius</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.CShapeDescription.inner_radius" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.CShapeDescription.n">
+<span class="sig-name descname"><span class="pre">n</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#hsc.domain_properties.CShapeDescription.n" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.CShapeDescription.radius">
+<span class="sig-name descname"><span class="pre">radius</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.CShapeDescription.radius" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.domain_properties.CrystalDescription">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.</span></span><span class="sig-name descname"><span class="pre">CrystalDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.CrystalDescription" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Holds information about a crystal.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.CrystalDescription.grid_size">
+<span class="sig-name descname"><span class="pre">grid_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.CrystalDescription.grid_size" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.CrystalDescription.n">
+<span class="sig-name descname"><span class="pre">n</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#hsc.domain_properties.CrystalDescription.n" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.domain_properties.CylinderDescription">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.</span></span><span class="sig-name descname"><span class="pre">CylinderDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.CylinderDescription" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.domain_properties.crystal_description.CrystalDescription" title="hsc.domain_properties.crystal_description.CrystalDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalDescription</span></code></a></p>
+<p>Holds information about a cylindrical crystal.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.CylinderDescription.grid_size">
+<span class="sig-name descname"><span class="pre">grid_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.CylinderDescription.grid_size" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.CylinderDescription.n">
+<span class="sig-name descname"><span class="pre">n</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#hsc.domain_properties.CylinderDescription.n" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.CylinderDescription.radius">
+<span class="sig-name descname"><span class="pre">radius</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.CylinderDescription.radius" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.</span></span><span class="sig-name descname"><span class="pre">Description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequencies:</span> <span class="pre">~numpy.array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_frequency:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_left:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_right:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elements_per_lambda:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elements_per_lambda_surf:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">absorber:</span> <span class="pre">~hsc.domain_properties.absorber_description.AbsorberDescription</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crystal:</span> <span class="pre">~hsc.domain_properties.crystal_description.CrystalDescription</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices:</span> <span class="pre">dict</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processed:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.Description" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Holds information of a domain on which only the frequency is varied.</p>
+<p>The reason for only varying the frequency in a single sample is that it may be easier to generate multiple samples
+on the same mesh. The frequency can but does not need to change the mesh of the domain. Compared to changing the
+parametrization of the crystals, this may save storage space.
+If the domain should be resampled for every simulation for every frequency, create one Description per frequency.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.absorber">
+<span class="sig-name descname"><span class="pre">absorber</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#hsc.domain_properties.absorber_description.AbsorberDescription" title="hsc.domain_properties.absorber_description.AbsorberDescription"><span class="pre">AbsorberDescription</span></a></em><a class="headerlink" href="#hsc.domain_properties.Description.absorber" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.absorber_boxes">
+<span class="sig-name descname"><span class="pre">absorber_boxes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D" title="hsc.utility.bounding_box.BoundingBox2D"><span class="pre">BoundingBox2D</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hsc.domain_properties.Description.absorber_boxes" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.c">
+<span class="sig-name descname"><span class="pre">c</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.Description.c" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.crystal">
+<span class="sig-name descname"><span class="pre">crystal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#hsc.domain_properties.crystal_description.CrystalDescription" title="hsc.domain_properties.crystal_description.CrystalDescription"><span class="pre">CrystalDescription</span></a></em><a class="headerlink" href="#hsc.domain_properties.Description.crystal" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.crystal_box">
+<span class="sig-name descname"><span class="pre">crystal_box</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D" title="hsc.utility.bounding_box.BoundingBox2D"><span class="pre">BoundingBox2D</span></a></em><a class="headerlink" href="#hsc.domain_properties.Description.crystal_box" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.domain_box">
+<span class="sig-name descname"><span class="pre">domain_box</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D" title="hsc.utility.bounding_box.BoundingBox2D"><span class="pre">BoundingBox2D</span></a></em><a class="headerlink" href="#hsc.domain_properties.Description.domain_box" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.elements_per_lambda">
+<span class="sig-name descname"><span class="pre">elements_per_lambda</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.Description.elements_per_lambda" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.elements_per_lambda_surf">
+<span class="sig-name descname"><span class="pre">elements_per_lambda_surf</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.Description.elements_per_lambda_surf" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.frequencies">
+<span class="sig-name descname"><span class="pre">frequencies</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">array</span></em><a class="headerlink" href="#hsc.domain_properties.Description.frequencies" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.height">
+<span class="sig-name descname"><span class="pre">height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.Description.height" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.indices">
+<span class="sig-name descname"><span class="pre">indices</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#hsc.domain_properties.Description.indices" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.ks">
+<span class="sig-name descname"><span class="pre">ks</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">array</span></em><a class="headerlink" href="#hsc.domain_properties.Description.ks" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.left_box">
+<span class="sig-name descname"><span class="pre">left_box</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D" title="hsc.utility.bounding_box.BoundingBox2D"><span class="pre">BoundingBox2D</span></a></em><a class="headerlink" href="#hsc.domain_properties.Description.left_box" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.max_frequency">
+<span class="sig-name descname"><span class="pre">max_frequency</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.Description.max_frequency" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.n_left">
+<span class="sig-name descname"><span class="pre">n_left</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.Description.n_left" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.n_right">
+<span class="sig-name descname"><span class="pre">n_right</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.Description.n_right" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.processed">
+<span class="sig-name descname"><span class="pre">processed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#hsc.domain_properties.Description.processed" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.rho">
+<span class="sig-name descname"><span class="pre">rho</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.Description.rho" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.right_box">
+<span class="sig-name descname"><span class="pre">right_box</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D" title="hsc.utility.bounding_box.BoundingBox2D"><span class="pre">BoundingBox2D</span></a></em><a class="headerlink" href="#hsc.domain_properties.Description.right_box" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.save_to_json">
+<span class="sig-name descname"><span class="pre">save_to_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#hsc.domain_properties.Description.save_to_json" title="Link to this definition">¶</a></dt>
+<dd><p>Saves this object to the provided dir.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>out_dir</strong> – Path to the directory the json file is saved.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.serialize">
+<span class="sig-name descname"><span class="pre">serialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#hsc.domain_properties.Description.serialize" title="Link to this definition">¶</a></dt>
+<dd><p>Serializes this object to a dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary containing the information of this class and its properties.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.unique_id">
+<span class="sig-name descname"><span class="pre">unique_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="hsc.utility.html#hsc.utility.unique_id.UniqueId" title="hsc.utility.unique_id.UniqueId"><span class="pre">UniqueId</span></a></em><a class="headerlink" href="#hsc.domain_properties.Description.unique_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.update_derived_properties">
+<span class="sig-name descname"><span class="pre">update_derived_properties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.Description.update_derived_properties" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.Description.wave_lengths">
+<span class="sig-name descname"><span class="pre">wave_lengths</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">array</span></em><a class="headerlink" href="#hsc.domain_properties.Description.wave_lengths" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.domain_properties.NoneDescription">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.</span></span><span class="sig-name descname"><span class="pre">NoneDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.NoneDescription" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.domain_properties.crystal_description.CrystalDescription" title="hsc.domain_properties.crystal_description.CrystalDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalDescription</span></code></a></p>
+<p>A domain without crystals.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.domain_properties.PerlinDescription">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.</span></span><span class="sig-name descname"><span class="pre">PerlinDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_perlin_grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">301</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.PerlinDescription" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.domain_properties.crystal_description.CrystalDescription" title="hsc.domain_properties.crystal_description.CrystalDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalDescription</span></code></a></p>
+<p>Holds information about a random perlin noise crystal.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.PerlinDescription.grid_size">
+<span class="sig-name descname"><span class="pre">grid_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#hsc.domain_properties.PerlinDescription.grid_size" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.PerlinDescription.n">
+<span class="sig-name descname"><span class="pre">n</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#hsc.domain_properties.PerlinDescription.n" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.PerlinDescription.n_max">
+<span class="sig-name descname"><span class="pre">n_max</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#hsc.domain_properties.PerlinDescription.n_max" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.PerlinDescription.n_min">
+<span class="sig-name descname"><span class="pre">n_min</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#hsc.domain_properties.PerlinDescription.n_min" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.PerlinDescription.n_perlin_grid">
+<span class="sig-name descname"><span class="pre">n_perlin_grid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">301</span></em><a class="headerlink" href="#hsc.domain_properties.PerlinDescription.n_perlin_grid" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.PerlinDescription.noise_grid">
+<span class="sig-name descname"><span class="pre">noise_grid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">array</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#hsc.domain_properties.PerlinDescription.noise_grid" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.domain_properties.PerlinDescription.smoothing_steps">
+<span class="sig-name descname"><span class="pre">smoothing_steps</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#hsc.domain_properties.PerlinDescription.smoothing_steps" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hsc.domain_properties.read_config">
+<span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.</span></span><span class="sig-name descname"><span class="pre">read_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.domain_properties.read_config" title="Link to this definition">¶</a></dt>
+<dd><p>Reads a file and returns all possible descriptions of the domain that need to be solved.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file</strong> – ini-file, containing relevant information (template “input_file_template.ini”).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of all possible domain descriptions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hsc.domain_properties.read_from_json">
+<span class="sig-prename descclassname"><span class="pre">hsc.domain_properties.</span></span><span class="sig-name descname"><span class="pre">read_from_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.domain_properties.read_from_json" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Helmholtz Sonic Crystals</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="coverage.html">Code Coverage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">hsc</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="hsc.html">hsc package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">hsc</a><ul>
+  <li><a href="hsc.html">hsc package</a><ul>
+      <li>Previous: <a href="hsc.html" title="previous chapter">hsc package</a></li>
+      <li>Next: <a href="hsc.eval.html" title="next chapter">hsc.eval package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, Jakob Elias Wagner.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/hsc.domain_properties.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

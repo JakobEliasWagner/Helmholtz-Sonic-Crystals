@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>hsc.mesh package &#8212; Helmholtz Sonic Crystals 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="hsc.noise package" href="hsc.noise.html" />
+    <link rel="prev" title="hsc.eval package" href="hsc.eval.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="hsc-mesh-package">
+<h1>hsc.mesh package<a class="headerlink" href="#hsc-mesh-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-hsc.mesh.crystal_builder">
+<span id="hsc-mesh-crystal-builder-module"></span><h2>hsc.mesh.crystal_builder module<a class="headerlink" href="#module-hsc.mesh.crystal_builder" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_builder.CrystalBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.crystal_builder.</span></span><span class="sig-name descname"><span class="pre">CrystalBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.crystal_builder.CrystalBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.gmsh_builder.GmshBuilder" title="hsc.mesh.gmsh_builder.GmshBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">GmshBuilder</span></code></a></p>
+<p>Base class for crystal builders.</p>
+<p>Crystal builders are used to define all shapes of the crystals placed within a simulation domain. This base class
+does not place any crystals in the domain.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_builder.CrystalBuilder.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.crystal_builder.CrystalBuilder.build" title="Link to this definition">¶</a></dt>
+<dd><p>Builds the crystals according to the domain description.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to all newly created crystals.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_builder.CrystalBuilder.cut">
+<span class="sig-name descname"><span class="pre">cut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tools</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.crystal_builder.CrystalBuilder.cut" title="Link to this definition">¶</a></dt>
+<dd><p>Cuts the tools from the objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>objs</strong> – basic shape of the crystals.</p></li>
+<li><p><strong>tools</strong> – tools which are removed from the basic shape to create the crystal.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>indices to all crystals.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_builder.CrystalBuilder.define_objects">
+<span class="sig-name descname"><span class="pre">define_objects</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.crystal_builder.CrystalBuilder.define_objects" title="Link to this definition">¶</a></dt>
+<dd><p>Defines the objects associated with constructing the crystal by cutting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to all objects.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_builder.CrystalBuilder.define_tools">
+<span class="sig-name descname"><span class="pre">define_tools</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.crystal_builder.CrystalBuilder.define_tools" title="Link to this definition">¶</a></dt>
+<dd><p>Defines the tools associated with constructing the crystal by cutting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to all tools.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-hsc.mesh.crystal_builder_c_shaped">
+<span id="hsc-mesh-crystal-builder-c-shaped-module"></span><h2>hsc.mesh.crystal_builder_c_shaped module<a class="headerlink" href="#module-hsc.mesh.crystal_builder_c_shaped" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_builder_c_shaped.CShapedCrystalBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.crystal_builder_c_shaped.</span></span><span class="sig-name descname"><span class="pre">CShapedCrystalBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.crystal_builder_c_shaped.CShapedCrystalBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.crystal_builder_cylindrical.CylindricalCrystalBuilder" title="hsc.mesh.crystal_builder_cylindrical.CylindricalCrystalBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CylindricalCrystalBuilder</span></code></a></p>
+<p>C-shaped crystal builder.</p>
+<p>C-shaped sonic crystals use cylindrical shaped crystal as a precursor. The difference to a cylindrical shaped
+crystal is that a slot and a disk are cut from the disk.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_builder_c_shaped.CShapedCrystalBuilder.define_tools">
+<span class="sig-name descname"><span class="pre">define_tools</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.crystal_builder_c_shaped.CShapedCrystalBuilder.define_tools" title="Link to this definition">¶</a></dt>
+<dd><p>Define slot and disc that needs to be cut from the disk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to both rectangles and discs used as tools in the cutting operation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-hsc.mesh.crystal_builder_cylindrical">
+<span id="hsc-mesh-crystal-builder-cylindrical-module"></span><h2>hsc.mesh.crystal_builder_cylindrical module<a class="headerlink" href="#module-hsc.mesh.crystal_builder_cylindrical" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_builder_cylindrical.CylindricalCrystalBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.crystal_builder_cylindrical.</span></span><span class="sig-name descname"><span class="pre">CylindricalCrystalBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.crystal_builder_cylindrical.CylindricalCrystalBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.crystal_builder.CrystalBuilder" title="hsc.mesh.crystal_builder.CrystalBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalBuilder</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_builder_cylindrical.CylindricalCrystalBuilder.define_objects">
+<span class="sig-name descname"><span class="pre">define_objects</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.crystal_builder_cylindrical.CylindricalCrystalBuilder.define_objects" title="Link to this definition">¶</a></dt>
+<dd><p>Defines disks associated with this type of crystal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to the surfaces of the disks.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-hsc.mesh.crystal_builder_perlin">
+<span id="hsc-mesh-crystal-builder-perlin-module"></span><h2>hsc.mesh.crystal_builder_perlin module<a class="headerlink" href="#module-hsc.mesh.crystal_builder_perlin" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_builder_perlin.PerlinCrystalBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.crystal_builder_perlin.</span></span><span class="sig-name descname"><span class="pre">PerlinCrystalBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.crystal_builder_perlin.PerlinCrystalBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.crystal_builder.CrystalBuilder" title="hsc.mesh.crystal_builder.CrystalBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalBuilder</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_builder_perlin.PerlinCrystalBuilder.define_objects">
+<span class="sig-name descname"><span class="pre">define_objects</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.crystal_builder_perlin.PerlinCrystalBuilder.define_objects" title="Link to this definition">¶</a></dt>
+<dd><p>Defines disks associated with this type of crystal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to the surfaces of the disks.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-hsc.mesh.crystal_domain_builder">
+<span id="hsc-mesh-crystal-domain-builder-module"></span><h2>hsc.mesh.crystal_domain_builder module<a class="headerlink" href="#module-hsc.mesh.crystal_domain_builder" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_domain_builder.CShapedCrystalDomainBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.crystal_domain_builder.</span></span><span class="sig-name descname"><span class="pre">CShapedCrystalDomainBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.crystal_domain_builder.CShapedCrystalDomainBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.crystal_domain_builder.CrystalDomainBuilder" title="hsc.mesh.crystal_domain_builder.CrystalDomainBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalDomainBuilder</span></code></a></p>
+<p>Class for building simulation domains in which C-shaped crystals are placed.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_domain_builder.CrystalDomainBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.crystal_domain_builder.</span></span><span class="sig-name descname"><span class="pre">CrystalDomainBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">crystal_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hsc.mesh.crystal_builder.CrystalBuilder" title="hsc.mesh.crystal_builder.CrystalBuilder"><span class="pre">CrystalBuilder</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.crystal_domain_builder.CrystalDomainBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.gmsh_builder.GmshBuilder" title="hsc.mesh.gmsh_builder.GmshBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">GmshBuilder</span></code></a></p>
+<p>Class for building simulation domains in which crystals are placed.</p>
+<p>The CrystalDomainBuilder class provides functionalities to create and manipulate
+the simulation domain in which crystals are placed for computational simulations.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_domain_builder.CrystalDomainBuilder.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.crystal_domain_builder.CrystalDomainBuilder.build" title="Link to this definition">¶</a></dt>
+<dd><p>Builds the domain according to description and crystal builder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to all elements of the newly created simulation domain.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_domain_builder.CrystalDomainBuilder.cut">
+<span class="sig-name descname"><span class="pre">cut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tools</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.crystal_domain_builder.CrystalDomainBuilder.cut" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – encompassing domain.</p></li>
+<li><p><strong>tools</strong> – crystals which are cut from the encompassing domain.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>indices to all elements of the simulation domain.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_domain_builder.CrystalDomainBuilder.define_basic_shape">
+<span class="sig-name descname"><span class="pre">define_basic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#hsc.mesh.crystal_domain_builder.CrystalDomainBuilder.define_basic_shape" title="Link to this definition">¶</a></dt>
+<dd><p>Defines the shape of the encompassing domain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gmsh index to the rectangle.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_domain_builder.CrystalDomainBuilder.define_tools">
+<span class="sig-name descname"><span class="pre">define_tools</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.crystal_domain_builder.CrystalDomainBuilder.define_tools" title="Link to this definition">¶</a></dt>
+<dd><p>Defines the tools which are used to cut the domain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to all elements that need to be cut from the domain.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_domain_builder.CylindricalCrystalDomainBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.crystal_domain_builder.</span></span><span class="sig-name descname"><span class="pre">CylindricalCrystalDomainBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.crystal_domain_builder.CylindricalCrystalDomainBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.crystal_domain_builder.CrystalDomainBuilder" title="hsc.mesh.crystal_domain_builder.CrystalDomainBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalDomainBuilder</span></code></a></p>
+<p>Class for building simulation domains in which cylindrical crystals are placed.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.crystal_domain_builder.PerlinCrystalDomainBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.crystal_domain_builder.</span></span><span class="sig-name descname"><span class="pre">PerlinCrystalDomainBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.crystal_domain_builder.PerlinCrystalDomainBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.crystal_domain_builder.CrystalDomainBuilder" title="hsc.mesh.crystal_domain_builder.CrystalDomainBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalDomainBuilder</span></code></a></p>
+<p>Class for building simulation domains in which perlin crystals are placed.</p>
+</dd></dl>
+
+</section>
+<section id="module-hsc.mesh.gmsh_builder">
+<span id="hsc-mesh-gmsh-builder-module"></span><h2>hsc.mesh.gmsh_builder module<a class="headerlink" href="#module-hsc.mesh.gmsh_builder" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.gmsh_builder.GmshBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.gmsh_builder.</span></span><span class="sig-name descname"><span class="pre">GmshBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.gmsh_builder.GmshBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Abstract builder for all builders using the gmsh library.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.gmsh_builder.GmshBuilder.build">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.gmsh_builder.GmshBuilder.build" title="Link to this definition">¶</a></dt>
+<dd><p>Builds structures or mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to all net elements created by this builder.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-hsc.mesh.mesh_builder">
+<span id="hsc-mesh-mesh-builder-module"></span><h2>hsc.mesh.mesh_builder module<a class="headerlink" href="#module-hsc.mesh.mesh_builder" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.mesh_builder.MeshBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.mesh_builder.</span></span><span class="sig-name descname"><span class="pre">MeshBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.mesh_builder.MeshBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.gmsh_builder.GmshBuilder" title="hsc.mesh.gmsh_builder.GmshBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">GmshBuilder</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.mesh_builder.MeshBuilder.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.mesh_builder.MeshBuilder.build" title="Link to this definition">¶</a></dt>
+<dd><p>Builds structures or mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to all net elements created by this builder.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.mesh_builder.MeshBuilder.build_basic_shapes">
+<span class="sig-name descname"><span class="pre">build_basic_shapes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.mesh_builder.MeshBuilder.build_basic_shapes" title="Link to this definition">¶</a></dt>
+<dd><p>Builds all basic shapes.</p>
+<p>Basic shapes are rectangles within the domain. However, what is inside these rectangles may vary (i.e., cuts).
+Generates the crystal domain, a left and right space, and absorbers according to the description.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to surfaces of generated shapes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.mesh_builder.MeshBuilder.delete_msh_files">
+<span class="sig-name descname"><span class="pre">delete_msh_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.mesh_builder.MeshBuilder.delete_msh_files" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.mesh_builder.MeshBuilder.fragment_domain">
+<span class="sig-name descname"><span class="pre">fragment_domain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.mesh_builder.MeshBuilder.fragment_domain" title="Link to this definition">¶</a></dt>
+<dd><p>Fragments all parts of the domain, to create one connected mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>All surface indices in the domain.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.mesh_builder.MeshBuilder.generate_mesh">
+<span class="sig-name descname"><span class="pre">generate_mesh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.mesh_builder.MeshBuilder.generate_mesh" title="Link to this definition">¶</a></dt>
+<dd><p>Generates the mesh.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.mesh_builder.MeshBuilder.get_physical_groups">
+<span class="sig-name descname"><span class="pre">get_physical_groups</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.mesh_builder.MeshBuilder.get_physical_groups" title="Link to this definition">¶</a></dt>
+<dd><p>Takes the domain and identifies different physical groups.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuples containing the dim, physical tag, and a list of surface tags within this group</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.mesh_builder.MeshBuilder.save_mesh">
+<span class="sig-name descname"><span class="pre">save_mesh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#hsc.mesh.mesh_builder.MeshBuilder.save_mesh" title="Link to this definition">¶</a></dt>
+<dd><p>Saves raw mesh with physical groups to file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.mesh_builder.MeshBuilder.set_mesh_properties">
+<span class="sig-name descname"><span class="pre">set_mesh_properties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.mesh_builder.MeshBuilder.set_mesh_properties" title="Link to this definition">¶</a></dt>
+<dd><p>Sets properties that the meshing algorithm needs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.mesh_builder.MeshBuilder.set_physical_groups">
+<span class="sig-name descname"><span class="pre">set_physical_groups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#hsc.mesh.mesh_builder.MeshBuilder.set_physical_groups" title="Link to this definition">¶</a></dt>
+<dd><p>Sets physical groups according to the given groups</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>groups</strong> – tuple containing (dim, surface_tags, physical group index)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-hsc.mesh">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hsc.mesh" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.CShapedCrystalBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.</span></span><span class="sig-name descname"><span class="pre">CShapedCrystalBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.CShapedCrystalBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.crystal_builder_cylindrical.CylindricalCrystalBuilder" title="hsc.mesh.crystal_builder_cylindrical.CylindricalCrystalBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CylindricalCrystalBuilder</span></code></a></p>
+<p>C-shaped crystal builder.</p>
+<p>C-shaped sonic crystals use cylindrical shaped crystal as a precursor. The difference to a cylindrical shaped
+crystal is that a slot and a disk are cut from the disk.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.CShapedCrystalBuilder.define_tools">
+<span class="sig-name descname"><span class="pre">define_tools</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.CShapedCrystalBuilder.define_tools" title="Link to this definition">¶</a></dt>
+<dd><p>Define slot and disc that needs to be cut from the disk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to both rectangles and discs used as tools in the cutting operation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.CShapedCrystalDomainBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.</span></span><span class="sig-name descname"><span class="pre">CShapedCrystalDomainBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.CShapedCrystalDomainBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.crystal_domain_builder.CrystalDomainBuilder" title="hsc.mesh.crystal_domain_builder.CrystalDomainBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalDomainBuilder</span></code></a></p>
+<p>Class for building simulation domains in which C-shaped crystals are placed.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.CrystalBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.</span></span><span class="sig-name descname"><span class="pre">CrystalBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.CrystalBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.gmsh_builder.GmshBuilder" title="hsc.mesh.gmsh_builder.GmshBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">GmshBuilder</span></code></a></p>
+<p>Base class for crystal builders.</p>
+<p>Crystal builders are used to define all shapes of the crystals placed within a simulation domain. This base class
+does not place any crystals in the domain.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.CrystalBuilder.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.CrystalBuilder.build" title="Link to this definition">¶</a></dt>
+<dd><p>Builds the crystals according to the domain description.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to all newly created crystals.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.CrystalBuilder.cut">
+<span class="sig-name descname"><span class="pre">cut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tools</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.CrystalBuilder.cut" title="Link to this definition">¶</a></dt>
+<dd><p>Cuts the tools from the objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>objs</strong> – basic shape of the crystals.</p></li>
+<li><p><strong>tools</strong> – tools which are removed from the basic shape to create the crystal.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>indices to all crystals.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.CrystalBuilder.define_objects">
+<span class="sig-name descname"><span class="pre">define_objects</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.CrystalBuilder.define_objects" title="Link to this definition">¶</a></dt>
+<dd><p>Defines the objects associated with constructing the crystal by cutting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to all objects.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.CrystalBuilder.define_tools">
+<span class="sig-name descname"><span class="pre">define_tools</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.CrystalBuilder.define_tools" title="Link to this definition">¶</a></dt>
+<dd><p>Defines the tools associated with constructing the crystal by cutting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to all tools.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.CrystalDomainBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.</span></span><span class="sig-name descname"><span class="pre">CrystalDomainBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">crystal_builder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hsc.mesh.crystal_builder.CrystalBuilder" title="hsc.mesh.crystal_builder.CrystalBuilder"><span class="pre">CrystalBuilder</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.CrystalDomainBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.gmsh_builder.GmshBuilder" title="hsc.mesh.gmsh_builder.GmshBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">GmshBuilder</span></code></a></p>
+<p>Class for building simulation domains in which crystals are placed.</p>
+<p>The CrystalDomainBuilder class provides functionalities to create and manipulate
+the simulation domain in which crystals are placed for computational simulations.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.CrystalDomainBuilder.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.CrystalDomainBuilder.build" title="Link to this definition">¶</a></dt>
+<dd><p>Builds the domain according to description and crystal builder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to all elements of the newly created simulation domain.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.CrystalDomainBuilder.cut">
+<span class="sig-name descname"><span class="pre">cut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tools</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.CrystalDomainBuilder.cut" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – encompassing domain.</p></li>
+<li><p><strong>tools</strong> – crystals which are cut from the encompassing domain.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>indices to all elements of the simulation domain.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.CrystalDomainBuilder.define_basic_shape">
+<span class="sig-name descname"><span class="pre">define_basic_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#hsc.mesh.CrystalDomainBuilder.define_basic_shape" title="Link to this definition">¶</a></dt>
+<dd><p>Defines the shape of the encompassing domain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gmsh index to the rectangle.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.CrystalDomainBuilder.define_tools">
+<span class="sig-name descname"><span class="pre">define_tools</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.CrystalDomainBuilder.define_tools" title="Link to this definition">¶</a></dt>
+<dd><p>Defines the tools which are used to cut the domain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to all elements that need to be cut from the domain.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.CylindricalCrystalBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.</span></span><span class="sig-name descname"><span class="pre">CylindricalCrystalBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.CylindricalCrystalBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.crystal_builder.CrystalBuilder" title="hsc.mesh.crystal_builder.CrystalBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalBuilder</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.CylindricalCrystalBuilder.define_objects">
+<span class="sig-name descname"><span class="pre">define_objects</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.CylindricalCrystalBuilder.define_objects" title="Link to this definition">¶</a></dt>
+<dd><p>Defines disks associated with this type of crystal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to the surfaces of the disks.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.CylindricalCrystalDomainBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.</span></span><span class="sig-name descname"><span class="pre">CylindricalCrystalDomainBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.CylindricalCrystalDomainBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.crystal_domain_builder.CrystalDomainBuilder" title="hsc.mesh.crystal_domain_builder.CrystalDomainBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalDomainBuilder</span></code></a></p>
+<p>Class for building simulation domains in which cylindrical crystals are placed.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.MeshBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.</span></span><span class="sig-name descname"><span class="pre">MeshBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.MeshBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.gmsh_builder.GmshBuilder" title="hsc.mesh.gmsh_builder.GmshBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">GmshBuilder</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.MeshBuilder.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.MeshBuilder.build" title="Link to this definition">¶</a></dt>
+<dd><p>Builds structures or mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to all net elements created by this builder.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.MeshBuilder.build_basic_shapes">
+<span class="sig-name descname"><span class="pre">build_basic_shapes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.MeshBuilder.build_basic_shapes" title="Link to this definition">¶</a></dt>
+<dd><p>Builds all basic shapes.</p>
+<p>Basic shapes are rectangles within the domain. However, what is inside these rectangles may vary (i.e., cuts).
+Generates the crystal domain, a left and right space, and absorbers according to the description.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to surfaces of generated shapes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.MeshBuilder.delete_msh_files">
+<span class="sig-name descname"><span class="pre">delete_msh_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.MeshBuilder.delete_msh_files" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.MeshBuilder.fragment_domain">
+<span class="sig-name descname"><span class="pre">fragment_domain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.MeshBuilder.fragment_domain" title="Link to this definition">¶</a></dt>
+<dd><p>Fragments all parts of the domain, to create one connected mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>All surface indices in the domain.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.MeshBuilder.generate_mesh">
+<span class="sig-name descname"><span class="pre">generate_mesh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.MeshBuilder.generate_mesh" title="Link to this definition">¶</a></dt>
+<dd><p>Generates the mesh.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.MeshBuilder.get_physical_groups">
+<span class="sig-name descname"><span class="pre">get_physical_groups</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.MeshBuilder.get_physical_groups" title="Link to this definition">¶</a></dt>
+<dd><p>Takes the domain and identifies different physical groups.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuples containing the dim, physical tag, and a list of surface tags within this group</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.MeshBuilder.save_mesh">
+<span class="sig-name descname"><span class="pre">save_mesh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#hsc.mesh.MeshBuilder.save_mesh" title="Link to this definition">¶</a></dt>
+<dd><p>Saves raw mesh with physical groups to file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.MeshBuilder.set_mesh_properties">
+<span class="sig-name descname"><span class="pre">set_mesh_properties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.MeshBuilder.set_mesh_properties" title="Link to this definition">¶</a></dt>
+<dd><p>Sets properties that the meshing algorithm needs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.MeshBuilder.set_physical_groups">
+<span class="sig-name descname"><span class="pre">set_physical_groups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#hsc.mesh.MeshBuilder.set_physical_groups" title="Link to this definition">¶</a></dt>
+<dd><p>Sets physical groups according to the given groups</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>groups</strong> – tuple containing (dim, surface_tags, physical group index)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.PerlinCrystalBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.</span></span><span class="sig-name descname"><span class="pre">PerlinCrystalBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.PerlinCrystalBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.crystal_builder.CrystalBuilder" title="hsc.mesh.crystal_builder.CrystalBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalBuilder</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.mesh.PerlinCrystalBuilder.define_objects">
+<span class="sig-name descname"><span class="pre">define_objects</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hsc.mesh.PerlinCrystalBuilder.define_objects" title="Link to this definition">¶</a></dt>
+<dd><p>Defines disks associated with this type of crystal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>indices to the surfaces of the disks.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.mesh.PerlinCrystalDomainBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.mesh.</span></span><span class="sig-name descname"><span class="pre">PerlinCrystalDomainBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.mesh.PerlinCrystalDomainBuilder" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hsc.mesh.crystal_domain_builder.CrystalDomainBuilder" title="hsc.mesh.crystal_domain_builder.CrystalDomainBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">CrystalDomainBuilder</span></code></a></p>
+<p>Class for building simulation domains in which perlin crystals are placed.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Helmholtz Sonic Crystals</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="coverage.html">Code Coverage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">hsc</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="hsc.html">hsc package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">hsc</a><ul>
+  <li><a href="hsc.html">hsc package</a><ul>
+      <li>Previous: <a href="hsc.eval.html" title="previous chapter">hsc.eval package</a></li>
+      <li>Next: <a href="hsc.noise.html" title="next chapter">hsc.noise package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, Jakob Elias Wagner.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/hsc.mesh.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

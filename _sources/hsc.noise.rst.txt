@@ -1,0 +1,37 @@
+hsc.noise package
+=================
+
+Submodules
+----------
+
+hsc.noise.limited\_perlin module
+--------------------------------
+
+.. automodule:: hsc.noise.limited_perlin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hsc.noise.noise module
+----------------------
+
+.. automodule:: hsc.noise.noise
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hsc.noise.perlin module
+-----------------------
+
+.. automodule:: hsc.noise.perlin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: hsc.noise
+   :members:
+   :undoc-members:
+   :show-inheritance:

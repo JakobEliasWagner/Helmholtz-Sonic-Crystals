@@ -1,0 +1,53 @@
+hsc.eval package
+================
+
+Submodules
+----------
+
+hsc.eval.gap\_report module
+---------------------------
+
+.. automodule:: hsc.eval.gap_report
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hsc.eval.pressure\_report module
+--------------------------------
+
+.. automodule:: hsc.eval.pressure_report
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hsc.eval.report module
+----------------------
+
+.. automodule:: hsc.eval.report
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hsc.eval.report\_factory module
+-------------------------------
+
+.. automodule:: hsc.eval.report_factory
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hsc.eval.transmission\_loss module
+----------------------------------
+
+.. automodule:: hsc.eval.transmission_loss
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: hsc.eval
+   :members:
+   :undoc-members:
+   :show-inheritance:

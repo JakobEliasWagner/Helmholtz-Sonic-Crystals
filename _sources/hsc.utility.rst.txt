@@ -1,0 +1,45 @@
+hsc.utility package
+===================
+
+Submodules
+----------
+
+hsc.utility.bounding\_box module
+--------------------------------
+
+.. automodule:: hsc.utility.bounding_box
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hsc.utility.progress\_monitor module
+------------------------------------
+
+.. automodule:: hsc.utility.progress_monitor
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hsc.utility.unique\_id module
+-----------------------------
+
+.. automodule:: hsc.utility.unique_id
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hsc.utility.xml\_to\_numpy module
+---------------------------------
+
+.. automodule:: hsc.utility.xml_to_numpy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: hsc.utility
+   :members:
+   :undoc-members:
+   :show-inheritance:

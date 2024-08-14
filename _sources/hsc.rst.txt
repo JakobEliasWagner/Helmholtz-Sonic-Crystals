@@ -1,0 +1,43 @@
+hsc package
+===========
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   hsc.domain_properties
+   hsc.eval
+   hsc.mesh
+   hsc.noise
+   hsc.preprocessing
+   hsc.solver
+   hsc.utility
+
+Submodules
+----------
+
+hsc.dataset module
+------------------
+
+.. automodule:: hsc.dataset
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hsc.helmholtz module
+--------------------
+
+.. automodule:: hsc.helmholtz
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: hsc
+   :members:
+   :undoc-members:
+   :show-inheritance:

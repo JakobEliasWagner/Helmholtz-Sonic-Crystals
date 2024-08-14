@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>hsc package &#8212; Helmholtz Sonic Crystals 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="hsc.domain_properties package" href="hsc.domain_properties.html" />
+    <link rel="prev" title="hsc" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="hsc-package">
+<h1>hsc package<a class="headerlink" href="#hsc-package" title="Link to this heading">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hsc.domain_properties.html">hsc.domain_properties package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hsc.domain_properties.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.domain_properties.html#module-hsc.domain_properties.absorber_description">hsc.domain_properties.absorber_description module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.absorber_description.AbsorberDescription"><code class="docutils literal notranslate"><span class="pre">AbsorberDescription</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.absorber_description.AbsorberDescription.depth"><code class="docutils literal notranslate"><span class="pre">AbsorberDescription.depth</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.absorber_description.AdiabaticAbsorberDescription"><code class="docutils literal notranslate"><span class="pre">AdiabaticAbsorberDescription</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.absorber_description.AdiabaticAbsorberDescription.degree"><code class="docutils literal notranslate"><span class="pre">AdiabaticAbsorberDescription.degree</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.absorber_description.AdiabaticAbsorberDescription.round_trip"><code class="docutils literal notranslate"><span class="pre">AdiabaticAbsorberDescription.round_trip</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.domain_properties.html#module-hsc.domain_properties.crystal_description">hsc.domain_properties.crystal_description module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.crystal_description.CShapeDescription"><code class="docutils literal notranslate"><span class="pre">CShapeDescription</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.crystal_description.CShapeDescription.gap_width"><code class="docutils literal notranslate"><span class="pre">CShapeDescription.gap_width</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.crystal_description.CShapeDescription.inner_radius"><code class="docutils literal notranslate"><span class="pre">CShapeDescription.inner_radius</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.crystal_description.CShapeDescription.radius"><code class="docutils literal notranslate"><span class="pre">CShapeDescription.radius</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.crystal_description.CrystalDescription"><code class="docutils literal notranslate"><span class="pre">CrystalDescription</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.crystal_description.CrystalDescription.grid_size"><code class="docutils literal notranslate"><span class="pre">CrystalDescription.grid_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.crystal_description.CrystalDescription.n"><code class="docutils literal notranslate"><span class="pre">CrystalDescription.n</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.crystal_description.CylinderDescription"><code class="docutils literal notranslate"><span class="pre">CylinderDescription</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.crystal_description.CylinderDescription.radius"><code class="docutils literal notranslate"><span class="pre">CylinderDescription.radius</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.crystal_description.NoneDescription"><code class="docutils literal notranslate"><span class="pre">NoneDescription</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.crystal_description.PerlinDescription"><code class="docutils literal notranslate"><span class="pre">PerlinDescription</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.crystal_description.PerlinDescription.n_max"><code class="docutils literal notranslate"><span class="pre">PerlinDescription.n_max</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.crystal_description.PerlinDescription.n_min"><code class="docutils literal notranslate"><span class="pre">PerlinDescription.n_min</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.crystal_description.PerlinDescription.n_perlin_grid"><code class="docutils literal notranslate"><span class="pre">PerlinDescription.n_perlin_grid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.crystal_description.PerlinDescription.noise_grid"><code class="docutils literal notranslate"><span class="pre">PerlinDescription.noise_grid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.crystal_description.PerlinDescription.smoothing_steps"><code class="docutils literal notranslate"><span class="pre">PerlinDescription.smoothing_steps</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.domain_properties.html#module-hsc.domain_properties.domain_description">hsc.domain_properties.domain_description module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description"><code class="docutils literal notranslate"><span class="pre">Description</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.absorber"><code class="docutils literal notranslate"><span class="pre">Description.absorber</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.absorber_boxes"><code class="docutils literal notranslate"><span class="pre">Description.absorber_boxes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.c"><code class="docutils literal notranslate"><span class="pre">Description.c</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.crystal"><code class="docutils literal notranslate"><span class="pre">Description.crystal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.crystal_box"><code class="docutils literal notranslate"><span class="pre">Description.crystal_box</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.domain_box"><code class="docutils literal notranslate"><span class="pre">Description.domain_box</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.elements_per_lambda"><code class="docutils literal notranslate"><span class="pre">Description.elements_per_lambda</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.elements_per_lambda_surf"><code class="docutils literal notranslate"><span class="pre">Description.elements_per_lambda_surf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.frequencies"><code class="docutils literal notranslate"><span class="pre">Description.frequencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.height"><code class="docutils literal notranslate"><span class="pre">Description.height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.indices"><code class="docutils literal notranslate"><span class="pre">Description.indices</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.ks"><code class="docutils literal notranslate"><span class="pre">Description.ks</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.left_box"><code class="docutils literal notranslate"><span class="pre">Description.left_box</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.max_frequency"><code class="docutils literal notranslate"><span class="pre">Description.max_frequency</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.n_left"><code class="docutils literal notranslate"><span class="pre">Description.n_left</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.n_right"><code class="docutils literal notranslate"><span class="pre">Description.n_right</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.processed"><code class="docutils literal notranslate"><span class="pre">Description.processed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.rho"><code class="docutils literal notranslate"><span class="pre">Description.rho</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.right_box"><code class="docutils literal notranslate"><span class="pre">Description.right_box</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.save_to_json"><code class="docutils literal notranslate"><span class="pre">Description.save_to_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.serialize"><code class="docutils literal notranslate"><span class="pre">Description.serialize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.unique_id"><code class="docutils literal notranslate"><span class="pre">Description.unique_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.update_derived_properties"><code class="docutils literal notranslate"><span class="pre">Description.update_derived_properties()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description.wave_lengths"><code class="docutils literal notranslate"><span class="pre">Description.wave_lengths</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.domain_properties.html#module-hsc.domain_properties.file_input">hsc.domain_properties.file_input module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.file_input.read_absorber_config"><code class="docutils literal notranslate"><span class="pre">read_absorber_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.file_input.read_adiabatic_absorber_config"><code class="docutils literal notranslate"><span class="pre">read_adiabatic_absorber_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.file_input.read_c_shaped_crystal"><code class="docutils literal notranslate"><span class="pre">read_c_shaped_crystal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.file_input.read_config"><code class="docutils literal notranslate"><span class="pre">read_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.file_input.read_crystal"><code class="docutils literal notranslate"><span class="pre">read_crystal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.file_input.read_crystal_config"><code class="docutils literal notranslate"><span class="pre">read_crystal_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.file_input.read_cylindrical_crystal"><code class="docutils literal notranslate"><span class="pre">read_cylindrical_crystal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.file_input.read_frequency"><code class="docutils literal notranslate"><span class="pre">read_frequency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.file_input.read_from_json"><code class="docutils literal notranslate"><span class="pre">read_from_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.file_input.read_none_crystal"><code class="docutils literal notranslate"><span class="pre">read_none_crystal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.file_input.read_perlin_crystal"><code class="docutils literal notranslate"><span class="pre">read_perlin_crystal()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.domain_properties.html#module-hsc.domain_properties">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.AdiabaticAbsorberDescription"><code class="docutils literal notranslate"><span class="pre">AdiabaticAbsorberDescription</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.AdiabaticAbsorberDescription.degree"><code class="docutils literal notranslate"><span class="pre">AdiabaticAbsorberDescription.degree</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.AdiabaticAbsorberDescription.depth"><code class="docutils literal notranslate"><span class="pre">AdiabaticAbsorberDescription.depth</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.AdiabaticAbsorberDescription.round_trip"><code class="docutils literal notranslate"><span class="pre">AdiabaticAbsorberDescription.round_trip</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.CShapeDescription"><code class="docutils literal notranslate"><span class="pre">CShapeDescription</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.CShapeDescription.gap_width"><code class="docutils literal notranslate"><span class="pre">CShapeDescription.gap_width</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.CShapeDescription.grid_size"><code class="docutils literal notranslate"><span class="pre">CShapeDescription.grid_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.CShapeDescription.inner_radius"><code class="docutils literal notranslate"><span class="pre">CShapeDescription.inner_radius</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.CShapeDescription.n"><code class="docutils literal notranslate"><span class="pre">CShapeDescription.n</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.CShapeDescription.radius"><code class="docutils literal notranslate"><span class="pre">CShapeDescription.radius</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.CrystalDescription"><code class="docutils literal notranslate"><span class="pre">CrystalDescription</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.CrystalDescription.grid_size"><code class="docutils literal notranslate"><span class="pre">CrystalDescription.grid_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.CrystalDescription.n"><code class="docutils literal notranslate"><span class="pre">CrystalDescription.n</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.CylinderDescription"><code class="docutils literal notranslate"><span class="pre">CylinderDescription</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.CylinderDescription.grid_size"><code class="docutils literal notranslate"><span class="pre">CylinderDescription.grid_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.CylinderDescription.n"><code class="docutils literal notranslate"><span class="pre">CylinderDescription.n</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.CylinderDescription.radius"><code class="docutils literal notranslate"><span class="pre">CylinderDescription.radius</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description"><code class="docutils literal notranslate"><span class="pre">Description</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.absorber"><code class="docutils literal notranslate"><span class="pre">Description.absorber</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.absorber_boxes"><code class="docutils literal notranslate"><span class="pre">Description.absorber_boxes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.c"><code class="docutils literal notranslate"><span class="pre">Description.c</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.crystal"><code class="docutils literal notranslate"><span class="pre">Description.crystal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.crystal_box"><code class="docutils literal notranslate"><span class="pre">Description.crystal_box</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.domain_box"><code class="docutils literal notranslate"><span class="pre">Description.domain_box</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.elements_per_lambda"><code class="docutils literal notranslate"><span class="pre">Description.elements_per_lambda</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.elements_per_lambda_surf"><code class="docutils literal notranslate"><span class="pre">Description.elements_per_lambda_surf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.frequencies"><code class="docutils literal notranslate"><span class="pre">Description.frequencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.height"><code class="docutils literal notranslate"><span class="pre">Description.height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.indices"><code class="docutils literal notranslate"><span class="pre">Description.indices</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.ks"><code class="docutils literal notranslate"><span class="pre">Description.ks</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.left_box"><code class="docutils literal notranslate"><span class="pre">Description.left_box</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.max_frequency"><code class="docutils literal notranslate"><span class="pre">Description.max_frequency</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.n_left"><code class="docutils literal notranslate"><span class="pre">Description.n_left</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.n_right"><code class="docutils literal notranslate"><span class="pre">Description.n_right</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.processed"><code class="docutils literal notranslate"><span class="pre">Description.processed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.rho"><code class="docutils literal notranslate"><span class="pre">Description.rho</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.right_box"><code class="docutils literal notranslate"><span class="pre">Description.right_box</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.save_to_json"><code class="docutils literal notranslate"><span class="pre">Description.save_to_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.serialize"><code class="docutils literal notranslate"><span class="pre">Description.serialize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.unique_id"><code class="docutils literal notranslate"><span class="pre">Description.unique_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.update_derived_properties"><code class="docutils literal notranslate"><span class="pre">Description.update_derived_properties()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.Description.wave_lengths"><code class="docutils literal notranslate"><span class="pre">Description.wave_lengths</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.NoneDescription"><code class="docutils literal notranslate"><span class="pre">NoneDescription</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.PerlinDescription"><code class="docutils literal notranslate"><span class="pre">PerlinDescription</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.PerlinDescription.grid_size"><code class="docutils literal notranslate"><span class="pre">PerlinDescription.grid_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.PerlinDescription.n"><code class="docutils literal notranslate"><span class="pre">PerlinDescription.n</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.PerlinDescription.n_max"><code class="docutils literal notranslate"><span class="pre">PerlinDescription.n_max</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.PerlinDescription.n_min"><code class="docutils literal notranslate"><span class="pre">PerlinDescription.n_min</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.PerlinDescription.n_perlin_grid"><code class="docutils literal notranslate"><span class="pre">PerlinDescription.n_perlin_grid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.PerlinDescription.noise_grid"><code class="docutils literal notranslate"><span class="pre">PerlinDescription.noise_grid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.PerlinDescription.smoothing_steps"><code class="docutils literal notranslate"><span class="pre">PerlinDescription.smoothing_steps</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.read_config"><code class="docutils literal notranslate"><span class="pre">read_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.read_from_json"><code class="docutils literal notranslate"><span class="pre">read_from_json()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hsc.eval.html">hsc.eval package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hsc.eval.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.eval.html#module-hsc.eval.gap_report">hsc.eval.gap_report module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.eval.html#hsc.eval.gap_report.GapReport"><code class="docutils literal notranslate"><span class="pre">GapReport</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.gap_report.GapReport.comparative_plot"><code class="docutils literal notranslate"><span class="pre">GapReport.comparative_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.gap_report.GapReport.comparative_plot_all"><code class="docutils literal notranslate"><span class="pre">GapReport.comparative_plot_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.gap_report.GapReport.difference_plot"><code class="docutils literal notranslate"><span class="pre">GapReport.difference_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.gap_report.GapReport.individual_plots"><code class="docutils literal notranslate"><span class="pre">GapReport.individual_plots()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.gap_report.GapReport.relational_plots"><code class="docutils literal notranslate"><span class="pre">GapReport.relational_plots()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.gap_report.GapReport.run"><code class="docutils literal notranslate"><span class="pre">GapReport.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.eval.html#module-hsc.eval.pressure_report">hsc.eval.pressure_report module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.eval.html#hsc.eval.pressure_report.PressureReport"><code class="docutils literal notranslate"><span class="pre">PressureReport</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.pressure_report.PressureReport.plot_difference"><code class="docutils literal notranslate"><span class="pre">PressureReport.plot_difference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.pressure_report.PressureReport.run"><code class="docutils literal notranslate"><span class="pre">PressureReport.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.eval.html#module-hsc.eval.report">hsc.eval.report module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.eval.html#hsc.eval.report.Report"><code class="docutils literal notranslate"><span class="pre">Report</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.report.Report.run"><code class="docutils literal notranslate"><span class="pre">Report.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.eval.html#module-hsc.eval.report_factory">hsc.eval.report_factory module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.eval.html#hsc.eval.report_factory.AllReportsFactory"><code class="docutils literal notranslate"><span class="pre">AllReportsFactory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.eval.html#hsc.eval.report_factory.ReportFactory"><code class="docutils literal notranslate"><span class="pre">ReportFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.report_factory.ReportFactory.run"><code class="docutils literal notranslate"><span class="pre">ReportFactory.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.eval.html#module-hsc.eval.transmission_loss">hsc.eval.transmission_loss module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.eval.html#hsc.eval.transmission_loss.transmission_loss"><code class="docutils literal notranslate"><span class="pre">transmission_loss()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.eval.html#module-hsc.eval">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.eval.html#hsc.eval.AllReportsFactory"><code class="docutils literal notranslate"><span class="pre">AllReportsFactory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.eval.html#hsc.eval.GapReport"><code class="docutils literal notranslate"><span class="pre">GapReport</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.GapReport.comparative_plot"><code class="docutils literal notranslate"><span class="pre">GapReport.comparative_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.GapReport.comparative_plot_all"><code class="docutils literal notranslate"><span class="pre">GapReport.comparative_plot_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.GapReport.difference_plot"><code class="docutils literal notranslate"><span class="pre">GapReport.difference_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.GapReport.individual_plots"><code class="docutils literal notranslate"><span class="pre">GapReport.individual_plots()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.GapReport.relational_plots"><code class="docutils literal notranslate"><span class="pre">GapReport.relational_plots()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.GapReport.run"><code class="docutils literal notranslate"><span class="pre">GapReport.run()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.eval.html#hsc.eval.PressureReport"><code class="docutils literal notranslate"><span class="pre">PressureReport</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.PressureReport.plot_difference"><code class="docutils literal notranslate"><span class="pre">PressureReport.plot_difference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.PressureReport.run"><code class="docutils literal notranslate"><span class="pre">PressureReport.run()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.eval.html#hsc.eval.ReportFactory"><code class="docutils literal notranslate"><span class="pre">ReportFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.eval.html#hsc.eval.ReportFactory.run"><code class="docutils literal notranslate"><span class="pre">ReportFactory.run()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.eval.html#hsc.eval.transmission_loss"><code class="docutils literal notranslate"><span class="pre">transmission_loss()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hsc.mesh.html">hsc.mesh package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hsc.mesh.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.mesh.html#module-hsc.mesh.crystal_builder">hsc.mesh.crystal_builder module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_builder.CrystalBuilder"><code class="docutils literal notranslate"><span class="pre">CrystalBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_builder.CrystalBuilder.build"><code class="docutils literal notranslate"><span class="pre">CrystalBuilder.build()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_builder.CrystalBuilder.cut"><code class="docutils literal notranslate"><span class="pre">CrystalBuilder.cut()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_builder.CrystalBuilder.define_objects"><code class="docutils literal notranslate"><span class="pre">CrystalBuilder.define_objects()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_builder.CrystalBuilder.define_tools"><code class="docutils literal notranslate"><span class="pre">CrystalBuilder.define_tools()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.mesh.html#module-hsc.mesh.crystal_builder_c_shaped">hsc.mesh.crystal_builder_c_shaped module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_builder_c_shaped.CShapedCrystalBuilder"><code class="docutils literal notranslate"><span class="pre">CShapedCrystalBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_builder_c_shaped.CShapedCrystalBuilder.define_tools"><code class="docutils literal notranslate"><span class="pre">CShapedCrystalBuilder.define_tools()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.mesh.html#module-hsc.mesh.crystal_builder_cylindrical">hsc.mesh.crystal_builder_cylindrical module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_builder_cylindrical.CylindricalCrystalBuilder"><code class="docutils literal notranslate"><span class="pre">CylindricalCrystalBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_builder_cylindrical.CylindricalCrystalBuilder.define_objects"><code class="docutils literal notranslate"><span class="pre">CylindricalCrystalBuilder.define_objects()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.mesh.html#module-hsc.mesh.crystal_builder_perlin">hsc.mesh.crystal_builder_perlin module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_builder_perlin.PerlinCrystalBuilder"><code class="docutils literal notranslate"><span class="pre">PerlinCrystalBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_builder_perlin.PerlinCrystalBuilder.define_objects"><code class="docutils literal notranslate"><span class="pre">PerlinCrystalBuilder.define_objects()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.mesh.html#module-hsc.mesh.crystal_domain_builder">hsc.mesh.crystal_domain_builder module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_domain_builder.CShapedCrystalDomainBuilder"><code class="docutils literal notranslate"><span class="pre">CShapedCrystalDomainBuilder</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_domain_builder.CrystalDomainBuilder"><code class="docutils literal notranslate"><span class="pre">CrystalDomainBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_domain_builder.CrystalDomainBuilder.build"><code class="docutils literal notranslate"><span class="pre">CrystalDomainBuilder.build()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_domain_builder.CrystalDomainBuilder.cut"><code class="docutils literal notranslate"><span class="pre">CrystalDomainBuilder.cut()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_domain_builder.CrystalDomainBuilder.define_basic_shape"><code class="docutils literal notranslate"><span class="pre">CrystalDomainBuilder.define_basic_shape()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_domain_builder.CrystalDomainBuilder.define_tools"><code class="docutils literal notranslate"><span class="pre">CrystalDomainBuilder.define_tools()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_domain_builder.CylindricalCrystalDomainBuilder"><code class="docutils literal notranslate"><span class="pre">CylindricalCrystalDomainBuilder</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.crystal_domain_builder.PerlinCrystalDomainBuilder"><code class="docutils literal notranslate"><span class="pre">PerlinCrystalDomainBuilder</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.mesh.html#module-hsc.mesh.gmsh_builder">hsc.mesh.gmsh_builder module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.gmsh_builder.GmshBuilder"><code class="docutils literal notranslate"><span class="pre">GmshBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.gmsh_builder.GmshBuilder.build"><code class="docutils literal notranslate"><span class="pre">GmshBuilder.build()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.mesh.html#module-hsc.mesh.mesh_builder">hsc.mesh.mesh_builder module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.mesh_builder.MeshBuilder"><code class="docutils literal notranslate"><span class="pre">MeshBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.mesh_builder.MeshBuilder.build"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.build()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.mesh_builder.MeshBuilder.build_basic_shapes"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.build_basic_shapes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.mesh_builder.MeshBuilder.delete_msh_files"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.delete_msh_files()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.mesh_builder.MeshBuilder.fragment_domain"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.fragment_domain()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.mesh_builder.MeshBuilder.generate_mesh"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.generate_mesh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.mesh_builder.MeshBuilder.get_physical_groups"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.get_physical_groups()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.mesh_builder.MeshBuilder.save_mesh"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.save_mesh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.mesh_builder.MeshBuilder.set_mesh_properties"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.set_mesh_properties()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.mesh_builder.MeshBuilder.set_physical_groups"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.set_physical_groups()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.mesh.html#module-hsc.mesh">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.CShapedCrystalBuilder"><code class="docutils literal notranslate"><span class="pre">CShapedCrystalBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.CShapedCrystalBuilder.define_tools"><code class="docutils literal notranslate"><span class="pre">CShapedCrystalBuilder.define_tools()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.CShapedCrystalDomainBuilder"><code class="docutils literal notranslate"><span class="pre">CShapedCrystalDomainBuilder</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.CrystalBuilder"><code class="docutils literal notranslate"><span class="pre">CrystalBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.CrystalBuilder.build"><code class="docutils literal notranslate"><span class="pre">CrystalBuilder.build()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.CrystalBuilder.cut"><code class="docutils literal notranslate"><span class="pre">CrystalBuilder.cut()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.CrystalBuilder.define_objects"><code class="docutils literal notranslate"><span class="pre">CrystalBuilder.define_objects()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.CrystalBuilder.define_tools"><code class="docutils literal notranslate"><span class="pre">CrystalBuilder.define_tools()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.CrystalDomainBuilder"><code class="docutils literal notranslate"><span class="pre">CrystalDomainBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.CrystalDomainBuilder.build"><code class="docutils literal notranslate"><span class="pre">CrystalDomainBuilder.build()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.CrystalDomainBuilder.cut"><code class="docutils literal notranslate"><span class="pre">CrystalDomainBuilder.cut()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.CrystalDomainBuilder.define_basic_shape"><code class="docutils literal notranslate"><span class="pre">CrystalDomainBuilder.define_basic_shape()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.CrystalDomainBuilder.define_tools"><code class="docutils literal notranslate"><span class="pre">CrystalDomainBuilder.define_tools()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.CylindricalCrystalBuilder"><code class="docutils literal notranslate"><span class="pre">CylindricalCrystalBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.CylindricalCrystalBuilder.define_objects"><code class="docutils literal notranslate"><span class="pre">CylindricalCrystalBuilder.define_objects()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.CylindricalCrystalDomainBuilder"><code class="docutils literal notranslate"><span class="pre">CylindricalCrystalDomainBuilder</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.MeshBuilder"><code class="docutils literal notranslate"><span class="pre">MeshBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.MeshBuilder.build"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.build()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.MeshBuilder.build_basic_shapes"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.build_basic_shapes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.MeshBuilder.delete_msh_files"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.delete_msh_files()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.MeshBuilder.fragment_domain"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.fragment_domain()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.MeshBuilder.generate_mesh"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.generate_mesh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.MeshBuilder.get_physical_groups"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.get_physical_groups()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.MeshBuilder.save_mesh"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.save_mesh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.MeshBuilder.set_mesh_properties"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.set_mesh_properties()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.MeshBuilder.set_physical_groups"><code class="docutils literal notranslate"><span class="pre">MeshBuilder.set_physical_groups()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.PerlinCrystalBuilder"><code class="docutils literal notranslate"><span class="pre">PerlinCrystalBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.PerlinCrystalBuilder.define_objects"><code class="docutils literal notranslate"><span class="pre">PerlinCrystalBuilder.define_objects()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.mesh.html#hsc.mesh.PerlinCrystalDomainBuilder"><code class="docutils literal notranslate"><span class="pre">PerlinCrystalDomainBuilder</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hsc.noise.html">hsc.noise package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hsc.noise.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.noise.html#module-hsc.noise.limited_perlin">hsc.noise.limited_perlin module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.noise.html#hsc.noise.limited_perlin.LimitedPerlin"><code class="docutils literal notranslate"><span class="pre">LimitedPerlin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.noise.html#hsc.noise.limited_perlin.LimitedPerlin.sample"><code class="docutils literal notranslate"><span class="pre">LimitedPerlin.sample()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.noise.html#module-hsc.noise.noise">hsc.noise.noise module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.noise.html#hsc.noise.noise.Noise"><code class="docutils literal notranslate"><span class="pre">Noise</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.noise.html#hsc.noise.noise.Noise.sample"><code class="docutils literal notranslate"><span class="pre">Noise.sample()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.noise.html#module-hsc.noise.perlin">hsc.noise.perlin module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.noise.html#hsc.noise.perlin.Perlin"><code class="docutils literal notranslate"><span class="pre">Perlin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.noise.html#hsc.noise.perlin.Perlin.sample"><code class="docutils literal notranslate"><span class="pre">Perlin.sample()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.noise.html#hsc.noise.perlin.fifth_order_smoothing"><code class="docutils literal notranslate"><span class="pre">fifth_order_smoothing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.noise.html#hsc.noise.perlin.smooth_step"><code class="docutils literal notranslate"><span class="pre">smooth_step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.noise.html#module-hsc.noise">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.noise.html#hsc.noise.LimitedPerlin"><code class="docutils literal notranslate"><span class="pre">LimitedPerlin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.noise.html#hsc.noise.LimitedPerlin.sample"><code class="docutils literal notranslate"><span class="pre">LimitedPerlin.sample()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.noise.html#hsc.noise.Noise"><code class="docutils literal notranslate"><span class="pre">Noise</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.noise.html#hsc.noise.Noise.sample"><code class="docutils literal notranslate"><span class="pre">Noise.sample()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.noise.html#hsc.noise.Perlin"><code class="docutils literal notranslate"><span class="pre">Perlin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.noise.html#hsc.noise.Perlin.sample"><code class="docutils literal notranslate"><span class="pre">Perlin.sample()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hsc.preprocessing.html">hsc.preprocessing package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hsc.preprocessing.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.preprocessing.html#module-hsc.preprocessing.build_pressure_dataset">hsc.preprocessing.build_pressure_dataset module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.preprocessing.html#hsc.preprocessing.build_pressure_dataset.build_pressure_dataset"><code class="docutils literal notranslate"><span class="pre">build_pressure_dataset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.preprocessing.html#module-hsc.preprocessing.build_transmisson_loss_dataset">hsc.preprocessing.build_transmisson_loss_dataset module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.preprocessing.html#hsc.preprocessing.build_transmisson_loss_dataset.build_transmission_loss_dataset"><code class="docutils literal notranslate"><span class="pre">build_transmission_loss_dataset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.preprocessing.html#module-hsc.preprocessing">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.preprocessing.html#hsc.preprocessing.build_pressure_dataset"><code class="docutils literal notranslate"><span class="pre">build_pressure_dataset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.preprocessing.html#hsc.preprocessing.build_transmission_loss_dataset"><code class="docutils literal notranslate"><span class="pre">build_transmission_loss_dataset()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hsc.solver.html">hsc.solver package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hsc.solver.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.solver.html#module-hsc.solver.adiabatic_absorber">hsc.solver.adiabatic_absorber module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.solver.html#hsc.solver.adiabatic_absorber.AdiabaticAbsorber"><code class="docutils literal notranslate"><span class="pre">AdiabaticAbsorber</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.solver.html#hsc.solver.adiabatic_absorber.AdiabaticAbsorber.eval"><code class="docutils literal notranslate"><span class="pre">AdiabaticAbsorber.eval()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.solver.html#hsc.solver.adiabatic_absorber.AdiabaticAbsorber.eval_x"><code class="docutils literal notranslate"><span class="pre">AdiabaticAbsorber.eval_x()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.solver.html#module-hsc.solver.solver">hsc.solver.solver module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.solver.html#hsc.solver.solver.HelmholtzSolver"><code class="docutils literal notranslate"><span class="pre">HelmholtzSolver</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.solver.html#module-hsc.solver.util">hsc.solver.util module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.solver.html#hsc.solver.util.get_mesh"><code class="docutils literal notranslate"><span class="pre">get_mesh()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.solver.html#module-hsc.solver.wave_number_function">hsc.solver.wave_number_function module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.solver.html#hsc.solver.wave_number_function.WaveNumberFunction"><code class="docutils literal notranslate"><span class="pre">WaveNumberFunction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.solver.html#hsc.solver.wave_number_function.WaveNumberFunction.eval"><code class="docutils literal notranslate"><span class="pre">WaveNumberFunction.eval()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.solver.html#module-hsc.solver">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.solver.html#hsc.solver.AdiabaticAbsorber"><code class="docutils literal notranslate"><span class="pre">AdiabaticAbsorber</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.solver.html#hsc.solver.AdiabaticAbsorber.eval"><code class="docutils literal notranslate"><span class="pre">AdiabaticAbsorber.eval()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.solver.html#hsc.solver.AdiabaticAbsorber.eval_x"><code class="docutils literal notranslate"><span class="pre">AdiabaticAbsorber.eval_x()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.solver.html#hsc.solver.HelmholtzSolver"><code class="docutils literal notranslate"><span class="pre">HelmholtzSolver</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.solver.html#hsc.solver.get_mesh"><code class="docutils literal notranslate"><span class="pre">get_mesh()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hsc.utility.html">hsc.utility package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hsc.utility.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.utility.html#module-hsc.utility.bounding_box">hsc.utility.bounding_box module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D.distance"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.distance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D.inside"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.inside()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D.max"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.max</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D.min"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.min</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D.size"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D.x_max"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.x_max</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D.x_min"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.x_min</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D.y_max"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.y_max</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.bounding_box.BoundingBox2D.y_min"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.y_min</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.utility.html#module-hsc.utility.progress_monitor">hsc.utility.progress_monitor module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.utility.html#hsc.utility.progress_monitor.ProgressMonitor"><code class="docutils literal notranslate"><span class="pre">ProgressMonitor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.progress_monitor.ProgressMonitor.monitor_pool"><code class="docutils literal notranslate"><span class="pre">ProgressMonitor.monitor_pool()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.progress_monitor.ProgressMonitor.monitor_pool_async"><code class="docutils literal notranslate"><span class="pre">ProgressMonitor.monitor_pool_async()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.progress_monitor.ProgressMonitor.print_progress_bar"><code class="docutils literal notranslate"><span class="pre">ProgressMonitor.print_progress_bar()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.utility.html#module-hsc.utility.unique_id">hsc.utility.unique_id module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.utility.html#hsc.utility.unique_id.UniqueId"><code class="docutils literal notranslate"><span class="pre">UniqueId</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.utility.html#module-hsc.utility.xml_to_numpy">hsc.utility.xml_to_numpy module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.utility.html#hsc.utility.xml_to_numpy.get_array"><code class="docutils literal notranslate"><span class="pre">get_array()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.utility.html#hsc.utility.xml_to_numpy.xdmf_to_numpy"><code class="docutils literal notranslate"><span class="pre">xdmf_to_numpy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hsc.utility.html#module-hsc.utility">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hsc.utility.html#hsc.utility.BoundingBox2D"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.BoundingBox2D.distance"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.distance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.BoundingBox2D.inside"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.inside()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.BoundingBox2D.max"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.max</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.BoundingBox2D.min"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.min</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.BoundingBox2D.size"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.BoundingBox2D.x_max"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.x_max</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.BoundingBox2D.x_min"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.x_min</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.BoundingBox2D.y_max"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.y_max</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.BoundingBox2D.y_min"><code class="docutils literal notranslate"><span class="pre">BoundingBox2D.y_min</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.utility.html#hsc.utility.ProgressMonitor"><code class="docutils literal notranslate"><span class="pre">ProgressMonitor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.ProgressMonitor.monitor_pool"><code class="docutils literal notranslate"><span class="pre">ProgressMonitor.monitor_pool()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.ProgressMonitor.monitor_pool_async"><code class="docutils literal notranslate"><span class="pre">ProgressMonitor.monitor_pool_async()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="hsc.utility.html#hsc.utility.ProgressMonitor.print_progress_bar"><code class="docutils literal notranslate"><span class="pre">ProgressMonitor.print_progress_bar()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.utility.html#hsc.utility.UniqueId"><code class="docutils literal notranslate"><span class="pre">UniqueId</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hsc.utility.html#hsc.utility.xdmf_to_numpy"><code class="docutils literal notranslate"><span class="pre">xdmf_to_numpy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-hsc.dataset">
+<span id="hsc-dataset-module"></span><h2>hsc.dataset module<a class="headerlink" href="#module-hsc.dataset" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.dataset.HelmholtzDataset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.dataset.</span></span><span class="sig-name descname"><span class="pre">HelmholtzDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequencies:</span> <span class="pre">&lt;built-in</span> <span class="pre">function</span> <span class="pre">array&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x:</span> <span class="pre">&lt;built-in</span> <span class="pre">function</span> <span class="pre">array&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p:</span> <span class="pre">&lt;built-in</span> <span class="pre">function</span> <span class="pre">array&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description:</span> <span class="pre">hsc.domain_properties.domain_description.Description</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.dataset.HelmholtzDataset" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.dataset.HelmholtzDataset.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></em><a class="headerlink" href="#hsc.dataset.HelmholtzDataset.description" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.dataset.HelmholtzDataset.frequencies">
+<span class="sig-name descname"><span class="pre">frequencies</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">array</span></em><a class="headerlink" href="#hsc.dataset.HelmholtzDataset.frequencies" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.dataset.HelmholtzDataset.from_comsol_file">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_comsol_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.dataset.HelmholtzDataset.from_comsol_file" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.dataset.HelmholtzDataset.from_xdmf_file">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_xdmf_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.dataset.HelmholtzDataset.from_xdmf_file" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.dataset.HelmholtzDataset.p">
+<span class="sig-name descname"><span class="pre">p</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">array</span></em><a class="headerlink" href="#hsc.dataset.HelmholtzDataset.p" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.dataset.HelmholtzDataset.x">
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">array</span></em><a class="headerlink" href="#hsc.dataset.HelmholtzDataset.x" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-hsc.helmholtz">
+<span id="hsc-helmholtz-module"></span><h2>hsc.helmholtz module<a class="headerlink" href="#module-hsc.helmholtz" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.helmholtz.Helmholtz">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.helmholtz.</span></span><span class="sig-name descname"><span class="pre">Helmholtz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">problem_description_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.helmholtz.Helmholtz" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Facade for generating datasets for different descriptions of sonic crystals in the acoustic domain.</p>
+<p>$$
+The Helmholtz equation is a partial differential equation derived from applying the Laplace operators to a function
+and equating it to the negative of the function multiplied by a constant. It describes the behavior of wave
+phenomena, such as sound waves, electromagnetic waves, or quantum mechanical waves, in a given medium. This equation
+is fundamental in various fields of physics and engineering, where it’s used to understand wave propagation and
+vibration in different contexts. In this context, only applications to acoustic problems are researched, though this
+code could be extended to be agnostic to the type of underlying problem.
+Acoustic sonic crystals are artificial structures made of periodic arrangements of materials with different acoustic
+properties, designed to affect the propagation of sound waves. They manipulate sound waves through phenomena like
+diffraction and interference, leading to unique effects like sound filtering, sound guiding, and the creation of
+acoustic band gaps. These structures are used in various applications, including noise reduction, sound control in
+buildings, and the development of new acoustic devices.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.helmholtz.Helmholtz.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_threads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.helmholtz.Helmholtz.run" title="Link to this definition">¶</a></dt>
+<dd><p>Generates the dataset for the current description in parallel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_threads</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.helmholtz.Helmholtz.run_single_description">
+<span class="sig-name descname"><span class="pre">run_single_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.helmholtz.Helmholtz.run_single_description" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-hsc">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hsc" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.Helmholtz">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.</span></span><span class="sig-name descname"><span class="pre">Helmholtz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">problem_description_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.Helmholtz" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Facade for generating datasets for different descriptions of sonic crystals in the acoustic domain.</p>
+<p>$$
+The Helmholtz equation is a partial differential equation derived from applying the Laplace operators to a function
+and equating it to the negative of the function multiplied by a constant. It describes the behavior of wave
+phenomena, such as sound waves, electromagnetic waves, or quantum mechanical waves, in a given medium. This equation
+is fundamental in various fields of physics and engineering, where it’s used to understand wave propagation and
+vibration in different contexts. In this context, only applications to acoustic problems are researched, though this
+code could be extended to be agnostic to the type of underlying problem.
+Acoustic sonic crystals are artificial structures made of periodic arrangements of materials with different acoustic
+properties, designed to affect the propagation of sound waves. They manipulate sound waves through phenomena like
+diffraction and interference, leading to unique effects like sound filtering, sound guiding, and the creation of
+acoustic band gaps. These structures are used in various applications, including noise reduction, sound control in
+buildings, and the development of new acoustic devices.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.Helmholtz.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_threads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.Helmholtz.run" title="Link to this definition">¶</a></dt>
+<dd><p>Generates the dataset for the current description in parallel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_threads</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.Helmholtz.run_single_description">
+<span class="sig-name descname"><span class="pre">run_single_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.Helmholtz.run_single_description" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hsc.HelmholtzDataset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hsc.</span></span><span class="sig-name descname"><span class="pre">HelmholtzDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequencies:</span> <span class="pre">&lt;built-in</span> <span class="pre">function</span> <span class="pre">array&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x:</span> <span class="pre">&lt;built-in</span> <span class="pre">function</span> <span class="pre">array&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p:</span> <span class="pre">&lt;built-in</span> <span class="pre">function</span> <span class="pre">array&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description:</span> <span class="pre">hsc.domain_properties.domain_description.Description</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.HelmholtzDataset" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.HelmholtzDataset.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></em><a class="headerlink" href="#hsc.HelmholtzDataset.description" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.HelmholtzDataset.frequencies">
+<span class="sig-name descname"><span class="pre">frequencies</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">array</span></em><a class="headerlink" href="#hsc.HelmholtzDataset.frequencies" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.HelmholtzDataset.from_comsol_file">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_comsol_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hsc.domain_properties.html#hsc.domain_properties.domain_description.Description" title="hsc.domain_properties.domain_description.Description"><span class="pre">Description</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.HelmholtzDataset.from_comsol_file" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hsc.HelmholtzDataset.from_xdmf_file">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_xdmf_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hsc.HelmholtzDataset.from_xdmf_file" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.HelmholtzDataset.p">
+<span class="sig-name descname"><span class="pre">p</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">array</span></em><a class="headerlink" href="#hsc.HelmholtzDataset.p" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hsc.HelmholtzDataset.x">
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">array</span></em><a class="headerlink" href="#hsc.HelmholtzDataset.x" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Helmholtz Sonic Crystals</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="coverage.html">Code Coverage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">hsc</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">hsc package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">hsc</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">hsc</a></li>
+      <li>Next: <a href="hsc.domain_properties.html" title="next chapter">hsc.domain_properties package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, Jakob Elias Wagner.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/hsc.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
