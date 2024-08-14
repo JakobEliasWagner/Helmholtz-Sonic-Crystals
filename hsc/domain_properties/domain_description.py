@@ -24,6 +24,7 @@ class Description:
 
     # physics
     frequencies: np.array
+    max_frequency: float
     rho: float
     c: float
 
@@ -31,6 +32,7 @@ class Description:
     n_left: float  # factor of grid_size
     n_right: float  # factor of grid_size
     elements_per_lambda: float
+    elements_per_lambda_surf: float
 
     # absorber
     absorber: AbsorberDescription
@@ -77,17 +79,29 @@ class Description:
         offset = self.crystal.grid_size / 2.0
         # left box
         l_width = self.n_left * self.crystal.grid_size
-        self.left_box = BoundingBox2D(-l_width - offset, 0 - offset, 0 - offset, self.height - offset)
+        self.left_box = BoundingBox2D(
+            -l_width - offset, 0 - offset, 0 - offset, self.height - offset
+        )
         # domain
         d_width = self.crystal.n * self.crystal.grid_size
-        self.crystal_box = BoundingBox2D(0 - offset, 0 - offset, d_width - offset, self.height - offset)
+        self.crystal_box = BoundingBox2D(
+            0 - offset, 0 - offset, d_width - offset, self.height - offset
+        )
         # right box
         r_width = self.n_right * self.crystal.grid_size
-        self.right_box = BoundingBox2D(d_width - offset, 0 - offset, d_width + r_width - offset, self.height - offset)
+        self.right_box = BoundingBox2D(
+            d_width - offset,
+            0 - offset,
+            d_width + r_width - offset,
+            self.height - offset,
+        )
         # absorbers
         self.absorber_boxes = {
             "left": BoundingBox2D(
-                -l_width - self.absorber.depth - offset, 0 - offset, -l_width - offset, self.height - offset
+                -l_width - self.absorber.depth - offset,
+                0 - offset,
+                -l_width - offset,
+                self.height - offset,
             ),
             "right": BoundingBox2D(
                 d_width + r_width - offset,
@@ -99,7 +113,10 @@ class Description:
 
         # overall bbox
         self.domain_box = BoundingBox2D(
-            self.left_box.x_min, self.left_box.y_min, self.right_box.x_max, self.right_box.y_max
+            self.left_box.x_min,
+            self.left_box.y_min,
+            self.right_box.x_max,
+            self.right_box.y_max,
         )
 
     def serialize(self) -> dict:
