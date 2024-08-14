@@ -1,4 +1,5 @@
 import pathlib
+import re
 import warnings
 from collections import defaultdict
 from typing import List, Tuple
@@ -11,12 +12,14 @@ from hsc.domain_properties import (
     CylinderDescription,
     Description,
     NoneDescription,
+    PerlinDescription,
 )
 
 from .crystal_domain_builder import (
     CrystalDomainBuilder,
     CShapedCrystalDomainBuilder,
     CylindricalCrystalDomainBuilder,
+    PerlinCrystalDomainBuilder,
 )
 from .gmsh_builder import GmshBuilder
 
@@ -33,6 +36,8 @@ class MeshBuilder(GmshBuilder):
             db = CShapedCrystalDomainBuilder
         elif isinstance(description.crystal, NoneDescription):
             db = CrystalDomainBuilder
+        elif isinstance(description.crystal, PerlinDescription):
+            db = PerlinCrystalDomainBuilder
         else:
             warnings.warn(
                 f"Unknown crystal type {description.crystal}. Defaulting to None!",
@@ -42,21 +47,30 @@ class MeshBuilder(GmshBuilder):
         self.domain_builder = db(description)
 
     def build(self):
-        gmsh.initialize()
-        gmsh.option.setNumber(
-            "General.Verbosity", 1
-        )  # set verbosity level (still prints warnings)
-        gmsh.model.add(f"model_{self.description.unique_id}")
+        try:
+            gmsh.initialize()
+            gmsh.option.setNumber(
+                "General.Verbosity", 1
+            )  # set verbosity level (still prints warnings)
+            gmsh.model.add(f"model_{self.description.unique_id}")
 
-        self.build_basic_shapes()
-        self.fragment_domain()
-        groups = self.get_physical_groups()
-        self.set_physical_groups(groups)
-        self.set_mesh_properties()
-        self.generate_mesh()
+            self.build_basic_shapes()
+            self.fragment_domain()
+            groups = self.get_physical_groups()
+            self.set_physical_groups(groups)
+            self.set_mesh_properties()
+            self.generate_mesh()
 
-        self.save_mesh()
-        gmsh.finalize()
+            self.save_mesh()
+            gmsh.finalize()
+        except:  # noqa
+            # Gmsh throws a general exception on failing the build
+            print("Failed to build mesh - restarting build")
+            biggest_nbr = 0
+            for file in pathlib.Path.cwd().joinpath("failed").iterdir():
+                biggest_nbr = max([biggest_nbr, int(re.findall(r"\d+", file.name)[0])])
+            pathlib.Path.cwd().joinpath("failed", f"failed_{biggest_nbr}.png").unlink()
+            self.build()
 
     def delete_msh_files(self):
         self.out_file.unlink()
@@ -65,8 +79,16 @@ class MeshBuilder(GmshBuilder):
         """Sets properties that the meshing algorithm needs."""
         self.factory.synchronize()
 
-        resolution = min(self.description.wave_lengths) / self.description.elements_per_lambda
-        curve_resolution = self.description.c / 20000 / self.description.elements_per_lambda
+        resolution = (
+            self.description.c
+            / self.description.max_frequency
+            / self.description.elements_per_lambda
+        )
+        curve_resolution = (
+            self.description.c
+            / self.description.max_frequency
+            / self.description.elements_per_lambda_surf
+        )
 
         # curves
         curves = self.factory.get_entities(1)
@@ -75,23 +97,31 @@ class MeshBuilder(GmshBuilder):
         relevant_curves = []
         for curve in curves:
             com = self.factory.get_center_of_mass(*curve)
-            if len(self.description.crystal_box.inside(np.array(com).reshape(-1, 1))) != 0:
+            if (
+                len(self.description.crystal_box.inside(np.array(com).reshape(-1, 1)))
+                != 0
+            ):
                 relevant_curves.append(curve[1])
             elif np.isclose(self.description.crystal_box.x_min, com[0]) or np.isclose(
-                    self.description.crystal_box.x_max, com[0]):
+                self.description.crystal_box.x_max, com[0]
+            ):
                 relevant_curves.append(curve[1])
 
         # field
-        distance = gmsh.model.mesh.field.add('Distance')
-        gmsh.model.mesh.field.setNumbers(distance, 'CurvesList', relevant_curves)
+        distance = gmsh.model.mesh.field.add("Distance")
+        gmsh.model.mesh.field.setNumbers(distance, "CurvesList", relevant_curves)
         gmsh.model.mesh.field.setNumber(distance, "Sampling", 100)
 
         threshold = gmsh.model.mesh.field.add("Threshold")
         gmsh.model.mesh.field.setNumber(threshold, "IField", distance)
         gmsh.model.mesh.field.setNumber(threshold, "SizeMin", curve_resolution)
         gmsh.model.mesh.field.setNumber(threshold, "SizeMax", resolution)
-        gmsh.model.mesh.field.setNumber(threshold, "DistMin", self.description.crystal.grid_size / 20)
-        gmsh.model.mesh.field.setNumber(threshold, "DistMax", self.description.crystal.grid_size / 5)
+        gmsh.model.mesh.field.setNumber(
+            threshold, "DistMin", self.description.crystal.grid_size / 20
+        )
+        gmsh.model.mesh.field.setNumber(
+            threshold, "DistMax", self.description.crystal.grid_size / 5
+        )
 
         gmsh.model.mesh.field.setAsBackgroundMesh(threshold)
 
