@@ -9,14 +9,17 @@ from hsc.domain_properties.file_input import read_absorber_config
 
 
 def test_file_input_domain_general(templates_path):
-    for file in ["domain_c_shaped.ini", "domain_cylindrical.ini", "domain_none.ini"]:
+    for file in [
+        "domain_c_shaped.ini",
+        "domain_cylindrical.ini",
+        "domain_none.ini",
+        "domain_perlin.ini",
+    ]:
         template = templates_path.joinpath(file)
         des = d.read_config(template)[0]
 
         assert all(
-            np.in1d(des.frequencies, np.linspace(2000, 20000, 257))[
-                : len(des.frequencies)
-            ]
+            np.in1d(des.frequencies, np.linspace(2000, 3000, 2))[: len(des.frequencies)]
         )
         assert des.rho == 1.2
         assert des.c == 343.0
@@ -37,9 +40,9 @@ def test_file_input_domain_c_shaped(templates_path):
     assert len(outer_rs) == len(inner_rs)
     assert len(outer_rs) == len(gap_ws)
 
-    assert len(set(outer_rs)) == 10
-    assert len(set(inner_rs)) == 10
-    assert len(set(gap_ws)) == 10
+    assert len(set(outer_rs)) == 2
+    assert len(set(inner_rs)) == 2
+    assert len(set(gap_ws)) == 2
 
 
 def test_file_input_domain_cylindrical(templates_path):
@@ -49,7 +52,7 @@ def test_file_input_domain_cylindrical(templates_path):
 
     rs = np.array(list({c.radius for c in crystals}))
 
-    assert len(set(rs)) == 10
+    assert len(set(rs)) == 3
 
 
 def test_file_input_domain_none(templates_path):
@@ -57,7 +60,7 @@ def test_file_input_domain_none(templates_path):
     descriptions = d.read_config(template)
     crystals = [des.crystal for des in descriptions]
 
-    assert len(crystals) == 10
+    assert len(crystals) == 2
 
 
 def test_unknown_crystal_type():

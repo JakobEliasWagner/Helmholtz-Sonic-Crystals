@@ -1,8 +1,11 @@
 import numpy as np
 import pytest
 
-from hsc.domain_properties import (AdiabaticAbsorberDescription, Description,
-                                   NoneDescription)
+from hsc.domain_properties import (
+    AdiabaticAbsorberDescription,
+    Description,
+    NoneDescription,
+)
 from hsc.solver import AdiabaticAbsorber
 
 
@@ -20,6 +23,8 @@ def all_sides_absorber():
         n_left=0.5,
         n_right=0.5,
         elements_per_lambda=6.5,
+        elements_per_lambda_surf=9.3,
+        max_frequency=2,
         absorber=AdiabaticAbsorberDescription(1.0, 10.0, 2),
         crystal=NoneDescription(grid_size=1, n=2),
     )

@@ -7,10 +7,14 @@ from typing import List
 import numpy as np
 import pytest
 
-from hsc.domain_properties import (AdiabaticAbsorberDescription,
-                                   CrystalDescription, CShapeDescription,
-                                   CylinderDescription, Description,
-                                   NoneDescription)
+from hsc.domain_properties import (
+    AdiabaticAbsorberDescription,
+    CrystalDescription,
+    CShapeDescription,
+    CylinderDescription,
+    Description,
+    NoneDescription,
+)
 from hsc.mesh import MeshBuilder
 from hsc.mesh.gmsh_builder import GmshBuilder
 
@@ -24,6 +28,8 @@ def cylindrical_description():
         n_left=0.55,
         n_right=0.75,
         elements_per_lambda=6.1,
+        elements_per_lambda_surf=9.4,
+        max_frequency=10000,
         absorber=AdiabaticAbsorberDescription(3.5),
         crystal=CylinderDescription(22e-3, 2, 6e-3),
     )
