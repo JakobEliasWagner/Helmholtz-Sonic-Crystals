@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" []>
+<Xdmf Version="3.0" xmlns:xi="https://www.w3.org/2001/XInclude">
+  <Domain>
+    <Grid Name="mesh" GridType="Uniform">
+      <Topology TopologyType="Triangle" NumberOfElements="15056" NodesPerElement="3">
+        <DataItem Dimensions="15056 3" NumberType="Int" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Mesh/mesh/topology</DataItem>
+      </Topology>
+      <Geometry GeometryType="XYZ">
+        <DataItem Dimensions="8616 3" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Mesh/mesh/geometry</DataItem>
+      </Geometry>
+    </Grid>
+    <Grid Name="f" GridType="Collection" CollectionType="Temporal">
+      <Grid Name="f" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="2358.3094095935417" />
+        <Attribute Name="real_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/real_f/2358_3094095935417</DataItem>
+        </Attribute>
+        <Attribute Name="imag_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/imag_f/2358_3094095935417</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="f" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="3012.4525041446432" />
+        <Attribute Name="real_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/real_f/3012_4525041446432</DataItem>
+        </Attribute>
+        <Attribute Name="imag_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/imag_f/3012_4525041446432</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="f" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="3378.902362296893" />
+        <Attribute Name="real_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/real_f/3378_902362296893</DataItem>
+        </Attribute>
+        <Attribute Name="imag_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/imag_f/3378_902362296893</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="f" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="4273.8756595430268" />
+        <Attribute Name="real_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/real_f/4273_8756595430268</DataItem>
+        </Attribute>
+        <Attribute Name="imag_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/imag_f/4273_8756595430268</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="f" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="5533.3726025776778" />
+        <Attribute Name="real_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/real_f/5533_3726025776778</DataItem>
+        </Attribute>
+        <Attribute Name="imag_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/imag_f/5533_3726025776778</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="f" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="5579.839060346696" />
+        <Attribute Name="real_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/real_f/5579_839060346696</DataItem>
+        </Attribute>
+        <Attribute Name="imag_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/imag_f/5579_839060346696</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="f" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="5663.4619117961047" />
+        <Attribute Name="real_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/real_f/5663_4619117961047</DataItem>
+        </Attribute>
+        <Attribute Name="imag_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/imag_f/5663_4619117961047</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="f" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="6211.6607778004873" />
+        <Attribute Name="real_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/real_f/6211_6607778004873</DataItem>
+        </Attribute>
+        <Attribute Name="imag_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/imag_f/6211_6607778004873</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="f" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="6308.8001465629832" />
+        <Attribute Name="real_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/real_f/6308_8001465629832</DataItem>
+        </Attribute>
+        <Attribute Name="imag_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/imag_f/6308_8001465629832</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="f" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="7184.7621079861465" />
+        <Attribute Name="real_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/real_f/7184_7621079861465</DataItem>
+        </Attribute>
+        <Attribute Name="imag_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/imag_f/7184_7621079861465</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="f" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="9644.7056420454646" />
+        <Attribute Name="real_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/real_f/9644_7056420454646</DataItem>
+        </Attribute>
+        <Attribute Name="imag_f" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="8616 1" Format="HDF">20240814084304-55c8d2ab-6e4f-46ca-8331-c8674e6622bd_solution.h5:/Function/imag_f/9644_7056420454646</DataItem>
+        </Attribute>
+      </Grid>
+    </Grid>
+  </Domain>
+</Xdmf>
